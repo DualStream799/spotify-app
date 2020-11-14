@@ -212,7 +212,7 @@ class Home extends Component {
 
 	Userplaylist = () => {
 		axios
-			.get('https://web-api-auth-examples.herokuapp.com/playlists')
+			.get('https://spotifyapimanager.herokuapp.com/playlists')
 			.then((response) => {
 				this.setState({
 					data: response.data.items,
@@ -532,7 +532,7 @@ class Home extends Component {
 	// ----------------------------- favoritos -------------------------
 	favoritos = () => {
 		axios
-			.post('https://web-api-auth-examples.herokuapp.com/router/users/', {
+			.post('https://spotifyapimanager.herokuapp.com/router/users/', {
 				user: this.state.user,
 				artista: this.state.meusFavoritos,
 				genero: this.state.meusFavoritosGeneros
@@ -755,7 +755,7 @@ class Home extends Component {
 
 	gera = async () => {
 		await axios
-			.get('https://web-api-auth-examples.herokuapp.com/router/userbyid', {
+			.get('https://spotifyapimanager.herokuapp.com/router/userbyid', {
 				params: {
 					user: this.state.user
 				}
@@ -842,7 +842,7 @@ class Home extends Component {
 					<div class="img" />
 					<div className="botoes">
 						<button class="btn">
-							<a class="link" href="https://web-api-auth-examples.herokuapp.com/login">
+							<a class="link" href="https://spotifyapimanager.herokuapp.com/login">
 								Logar com Spotify
 							</a>
 						</button>
