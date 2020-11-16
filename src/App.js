@@ -68,7 +68,7 @@ class App extends React.Component {
 				<div>
 					<button className="botao">
 						{/* <a href="http://localhost:8888/login"> */}
-						<a href="https://web-api-auth-examples.herokuapp.com/login">
+						<a href="https://spotifyapimanager.herokuapp.com/login">
 							<img className="botao1" src={botao} alt="botao" />
 						</a>
 					</button>

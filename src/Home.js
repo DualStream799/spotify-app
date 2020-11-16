@@ -12,14 +12,17 @@ import {
 	AiOutlineLinkedin
 } from 'react-icons/ai';
 import logoLindo from './logoLindo.png';
+import { FacebookShareButton, RedditShareButton, TwitterShareButton, WhatsappShareButton, EmailShareButton, FacebookIcon, RedditIcon, EmailIcon, TwitterIcon, WhatsappIcon } from 'react-share';
+
+
 
 class Home extends Component {
 	constructor(props) {
 		super(props);
 		const parametros = this.getHashParams();
-		this.token = parametros.access_token;
 
 		this.state = {
+			token : parametros.access_token,
 			data: [],
 			dataLan: [],
 			dataTracks: [],
@@ -95,7 +98,7 @@ class Home extends Component {
 		axios
 			.get('https://api.spotify.com/v1/me/tracks?limit=30', {
 				headers: {
-					Authorization: `Bearer ${this.token}`
+					Authorization: `Bearer ${this.state.token}`
 				}
 			})
 			.then((response) => {
@@ -113,7 +116,6 @@ class Home extends Component {
 					home: false,
 					recomendacoesPag: false
 				});
-				console.log(response.data.items);
 			})
 			.catch((erro) => console.log(erro.response.data));
 	};
@@ -163,7 +165,7 @@ class Home extends Component {
 		axios
 			.get('https://api.spotify.com/v1/browse/new-releases?limit=16', {
 				headers: {
-					Authorization: `Bearer ${this.token}`
+					Authorization: `Bearer ${this.state.token}`
 				}
 			})
 			.then((response) => {
@@ -181,7 +183,6 @@ class Home extends Component {
 					home: false,
 					recomendacoesPag: false
 				});
-				console.log(response.data.albums.items);
 			})
 			.catch((erro) => console.log(erro.response.data));
 	};
@@ -212,7 +213,11 @@ class Home extends Component {
 
 	Userplaylist = () => {
 		axios
-			.get('https://spotifyapimanager.herokuapp.com/playlists')
+			.get('https://api.spotify.com/v1/me/playlists', {
+				headers: {
+					Authorization: `Bearer ${this.state.token}`
+				}
+			})
 			.then((response) => {
 				this.setState({
 					data: response.data.items,
@@ -229,21 +234,12 @@ class Home extends Component {
 					home: false,
 					recomendacoesPag: false
 				});
-				console.log(response.data.items);
+				console.log(response)
+				console.log(this.state.userId)
 			})
 			.catch((erro) => console.log(erro.response.data));
 	};
 
-	// Authorization = () => {
-	// 	$.ajax({
-	// 		method: 'GET',
-	// 		dataType: 'Json',
-	// 		url:
-	// 			'https://accounts.spotify.com/authorize?client_id=ca202a7d6b6646aa9458a56515b54270&response_type=code&redirect_uri=https%3A%2F%2Flocalhost%3A3000.com&scope=user-read-private%20user-read-email&state=34fFs29kd09'
-	// 	}).then((dados) => {
-	// 		console.log(dados);
-	// 	});
-	// };
 
 	playlist = () => {
 		var playlists = this.state.data;
@@ -287,7 +283,7 @@ class Home extends Component {
 		axios
 			.get('https://api.spotify.com/v1/me/player/currently-playing', {
 				headers: {
-					Authorization: `Bearer ${this.token}`
+					Authorization: `Bearer ${this.state.token}`
 				}
 			})
 			.then((response) => {
@@ -306,7 +302,6 @@ class Home extends Component {
 					home: false,
 					recomendacoesPag: false
 				});
-				console.log(response.data);
 			})
 			.catch((erro) => console.log(erro.response.data));
 	};
@@ -315,7 +310,7 @@ class Home extends Component {
 		axios
 			.get('https://api.spotify.com/v1/me/player/recently-played', {
 				headers: {
-					Authorization: `Bearer ${this.token}`
+					Authorization: `Bearer ${this.state.token}`
 				}
 			})
 			.then((response) => {
@@ -333,7 +328,6 @@ class Home extends Component {
 					home: false,
 					recomendacoesPag: false
 				});
-				console.log(response.data.items);
 			})
 			.catch((erro) => console.log(erro.response.data));
 	};
@@ -403,10 +397,11 @@ class Home extends Component {
 
 	// ---------------------------- top musicas -------------------------------
 	topMusic = () => {
+		console.log(this.state.token)
 		axios
 			.get('https://api.spotify.com/v1/me/top/tracks?limit=20', {
 				headers: {
-					Authorization: `Bearer ${this.token}`
+					Authorization: `Bearer ${this.state.token}`
 				}
 			})
 			.then((response) => {
@@ -427,8 +422,8 @@ class Home extends Component {
 					maisOuvidasM: response.data.items[0].id,
 					recomendacoesPag: false
 				});
+				console.log(response)
 
-				console.log(this.state.maisOuvidasM);
 			})
 			.catch((erro) => console.log(erro.response.data));
 	};
@@ -437,12 +432,9 @@ class Home extends Component {
 		var musicas = this.state.dataTopM;
 		var lista = [];
 
-		// var setando = this.setState({ maisOuvidasM: 'banana' });
+
 		var musica = musicas.map((topMusicas) => {
 			lista.push(topMusicas.id);
-			// console.log(lista);
-			// this.setState({ maisOuvidasM: 'lista' });
-			// console.log(this.state.maisOuvidasM);
 
 			return (
 				<div className="grid-item">
@@ -451,10 +443,7 @@ class Home extends Component {
 						<p className="TrackName">{topMusicas.name}</p>
 						<p className="Texto">{topMusicas.artists[0].name}</p>
 					</div>
-					{/* <button onClick={this.setState({ maisOuvidasM: [ ...this.state.maisOuvidasM, topMusicas.id ] })}>
-						{' '}
-						Teste
-					</button> */}
+
 				</div>
 			);
 		});
@@ -475,7 +464,7 @@ class Home extends Component {
 		axios
 			.get('https://api.spotify.com/v1/me/top/artists', {
 				headers: {
-					Authorization: `Bearer ${this.token}`
+					Authorization: `Bearer ${this.state.token}`
 				}
 			})
 			.then((response) => {
@@ -495,7 +484,6 @@ class Home extends Component {
 					home: false,
 					recomendacoesPag: false
 				});
-				console.log(response.data.items);
 			})
 			.catch((erro) => console.log(erro.response.data));
 	};
@@ -556,7 +544,6 @@ class Home extends Component {
 					geraPlaylist: true,
 					recomendacoesPag: false
 				});
-				console.log(response.data);
 			})
 			.catch((erro) => console.log(erro.response.data));
 	};
@@ -569,14 +556,12 @@ class Home extends Component {
 
 		if (isChecked) {
 			this.setState({ meusFavoritos: [ ...this.state.meusFavoritos, item ], isChecked: true });
-			// console.log(this.state.meusFavoritos);
 		} else {
 			delete array[index];
 			this.setState({ isChecked: false });
 		}
 
-		console.log(this.state.meusFavoritos);
-		console.log(item);
+
 	};
 
 	handleClickGeneros = (e) => {
@@ -592,12 +577,10 @@ class Home extends Component {
 			this.setState({ isCheckedGenre: false });
 		}
 
-		console.log(this.state.meusFavoritosGeneros);
-		console.log(item);
+
 	};
 
 	retornaMeusFavs = () => {
-		console.log(this.state.meusFavoritos);
 		return <div className="bloco">{this.state.meusFavoritos}</div>;
 	};
 
@@ -605,7 +588,7 @@ class Home extends Component {
 		axios
 			.get('https://api.spotify.com/v1/search', {
 				headers: {
-					Authorization: `Bearer ${this.token}`
+					Authorization: `Bearer ${this.state.token}`
 				},
 				params: {
 					q: this.state.search,
@@ -628,7 +611,6 @@ class Home extends Component {
 					home: false,
 					recomendacoesPag: false
 				});
-				console.log(this.state.artistaId);
 			})
 			.catch((erro) => console.log(erro.response.data));
 	};
@@ -775,7 +757,6 @@ class Home extends Component {
 					recomendacoes: true,
 					recomendacoesPag: false
 				});
-				console.log(response.data.genero_fav);
 			})
 			.catch((erro) => console.log(erro.response.data));
 	};
@@ -785,7 +766,7 @@ class Home extends Component {
 		axios
 			.get('https://api.spotify.com/v1/recommendations', {
 				headers: {
-					Authorization: `Bearer ${this.token}`
+					Authorization: `Bearer ${this.state.token}`
 				},
 				params: {
 					limit: 12,
@@ -809,7 +790,6 @@ class Home extends Component {
 					recomendacoes: false,
 					recomendacoesPag: true
 				});
-				console.log(this.state.dataReco);
 			})
 			.catch((erro) => console.log(erro.response.data));
 	};
@@ -835,6 +815,7 @@ class Home extends Component {
 	};
 
 	render() {
+		console.log(this.state)
 		return (
 			<div className="body_home">
 				{/* <div className="container"> */}
