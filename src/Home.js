@@ -20,9 +20,10 @@ class Home extends Component {
 	constructor(props) {
 		super(props);
 		const parametros = this.getHashParams();
+		this.token = parametros.access_token;
+
 
 		this.state = {
-			token : parametros.access_token,
 			data: [],
 			dataLan: [],
 			dataTracks: [],
@@ -98,7 +99,7 @@ class Home extends Component {
 		axios
 			.get('https://api.spotify.com/v1/me/tracks?limit=30', {
 				headers: {
-					Authorization: `Bearer ${this.state.token}`
+					Authorization: `Bearer ${this.token}`
 				}
 			})
 			.then((response) => {
@@ -165,7 +166,7 @@ class Home extends Component {
 		axios
 			.get('https://api.spotify.com/v1/browse/new-releases?limit=16', {
 				headers: {
-					Authorization: `Bearer ${this.state.token}`
+					Authorization: `Bearer ${this.token}`
 				}
 			})
 			.then((response) => {
@@ -215,7 +216,7 @@ class Home extends Component {
 		axios
 			.get('https://api.spotify.com/v1/me/playlists', {
 				headers: {
-					Authorization: `Bearer ${this.state.token}`
+					Authorization: `Bearer ${this.token}`
 				}
 			})
 			.then((response) => {
@@ -234,8 +235,6 @@ class Home extends Component {
 					home: false,
 					recomendacoesPag: false
 				});
-				console.log(response)
-				console.log(this.state.userId)
 			})
 			.catch((erro) => console.log(erro.response.data));
 	};
@@ -283,7 +282,7 @@ class Home extends Component {
 		axios
 			.get('https://api.spotify.com/v1/me/player/currently-playing', {
 				headers: {
-					Authorization: `Bearer ${this.state.token}`
+					Authorization: `Bearer ${this.token}`
 				}
 			})
 			.then((response) => {
@@ -310,7 +309,7 @@ class Home extends Component {
 		axios
 			.get('https://api.spotify.com/v1/me/player/recently-played', {
 				headers: {
-					Authorization: `Bearer ${this.state.token}`
+					Authorization: `Bearer ${this.token}`
 				}
 			})
 			.then((response) => {
@@ -397,11 +396,10 @@ class Home extends Component {
 
 	// ---------------------------- top musicas -------------------------------
 	topMusic = () => {
-		console.log(this.state.token)
 		axios
 			.get('https://api.spotify.com/v1/me/top/tracks?limit=20', {
 				headers: {
-					Authorization: `Bearer ${this.state.token}`
+					Authorization: `Bearer ${this.token}`
 				}
 			})
 			.then((response) => {
@@ -422,8 +420,6 @@ class Home extends Component {
 					maisOuvidasM: response.data.items[0].id,
 					recomendacoesPag: false
 				});
-				console.log(response)
-
 			})
 			.catch((erro) => console.log(erro.response.data));
 	};
@@ -464,7 +460,7 @@ class Home extends Component {
 		axios
 			.get('https://api.spotify.com/v1/me/top/artists', {
 				headers: {
-					Authorization: `Bearer ${this.state.token}`
+					Authorization: `Bearer ${this.token}`
 				}
 			})
 			.then((response) => {
@@ -588,7 +584,7 @@ class Home extends Component {
 		axios
 			.get('https://api.spotify.com/v1/search', {
 				headers: {
-					Authorization: `Bearer ${this.state.token}`
+					Authorization: `Bearer ${this.token}`
 				},
 				params: {
 					q: this.state.search,
@@ -766,7 +762,7 @@ class Home extends Component {
 		axios
 			.get('https://api.spotify.com/v1/recommendations', {
 				headers: {
-					Authorization: `Bearer ${this.state.token}`
+					Authorization: `Bearer ${this.token}`
 				},
 				params: {
 					limit: 12,
@@ -815,7 +811,6 @@ class Home extends Component {
 	};
 
 	render() {
-		console.log(this.state)
 		return (
 			<div className="body_home">
 				{/* <div className="container"> */}
