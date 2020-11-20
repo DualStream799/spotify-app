@@ -21,7 +21,7 @@ const useStyles = (theme) => ({
 
 
 
-class AddMusicToPlaylist extends React.Component {
+export class AddMusicToPlaylist extends React.Component {
     constructor() {
       super()
       this.state = {
@@ -29,6 +29,7 @@ class AddMusicToPlaylist extends React.Component {
         musicData : "",
         token : "",
         playlist: "",
+        selectedPlaylist : "",
         selectedPlaylistUri : ""
 
       }
@@ -47,6 +48,7 @@ class AddMusicToPlaylist extends React.Component {
             selectedPlaylistUri : "",
             response: ""
         });
+        console.log(this.state.playlist)
 
 	};
     
@@ -64,8 +66,7 @@ class AddMusicToPlaylist extends React.Component {
         console.log(this.state.selectedPlaylistUri)
       }
 
-    addToPlaylist(event) {
-        event.preventDefault()
+    addToPlaylist() {
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json',
@@ -88,7 +89,7 @@ class AddMusicToPlaylist extends React.Component {
         return (
             this.state.loading?<h1>Loading</h1>:
             <div className={classes.root}>
-              <Button color="primary" variant="contained" onClick ={(e) => this.addToPlaylist(e)} >Adicionar</Button>
+              <Button color="primary" variant="contained" onClick ={this.addToPlaylist} >Adicionar</Button>
               <InputLabel htmlFor="age-native-simple">Escolha a playlist</InputLabel>
                 <Select
                 native
@@ -104,4 +105,5 @@ class AddMusicToPlaylist extends React.Component {
     
       }
     }
+
 export default withStyles(useStyles)(AddMusicToPlaylist)

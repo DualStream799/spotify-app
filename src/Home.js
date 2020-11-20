@@ -92,7 +92,9 @@ class Home extends Component {
 			.then((response) => {
 				this.setState({
 					dataTracks: response.data.items,
+					data: response.data.items,
 				});
+				console.log(this.state.data)
 			})
 			.catch((erro) => console.log(erro.response.data));
 	};
@@ -160,7 +162,7 @@ class Home extends Component {
 						<p>
 							{minutos}:{tempo.toFixed(0)}
 						</p>
-						<AddMusicToPlaylist playlists = {this.state.data} tracks = {songs.track} token = {this.token}/>
+						<AddMusicToPlaylist playlists = {this.state.data} tracks = {songs.track} token = {this.token} />
 					</div>
 					<hr className="line" />
 				</div>
