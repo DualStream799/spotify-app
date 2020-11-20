@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AddMusicToPlaylist from "./components/AddMusicToPlaylist"
 
 import $ from 'jquery';
 import axios from 'axios';
@@ -80,6 +81,28 @@ class Home extends Component {
 		this.pag_recomend = this.pag_recomend.bind(this);
 	}
 
+
+	componentDidMount= () => {
+		axios
+			.get('https://api.spotify.com/v1/me/tracks?limit=30', {
+				headers: {
+					Authorization: `Bearer ${this.token}`
+				}
+			})
+			.then((response) => {
+				this.setState({
+					dataTracks: response.data.items,
+					data: response.data.items,
+				});
+				console.log(this.state.data)
+			})
+			.catch((erro) => console.log(erro.response.data));
+	};
+
+
+
+
+
 	getHashParams() {
 		var hashParams = {};
 		var e,
@@ -130,16 +153,16 @@ class Home extends Component {
 				tempo = tempo - 60;
 				minutos += 1;
 			}
-
+			
 			return (
 				<div>
 					<div className="antigas">
 						<p className="antigastxt">{songs.track.name}</p>
 						<p className="antigastxt">{songs.track.album.artists[0].name}</p>
-
 						<p>
 							{minutos}:{tempo.toFixed(0)}
 						</p>
+						<AddMusicToPlaylist playlists = {this.state.data} tracks = {songs.track} token = {this.token} />
 					</div>
 					<hr className="line" />
 				</div>
@@ -235,6 +258,7 @@ class Home extends Component {
 					home: false,
 					recomendacoesPag: false
 				});
+				console.log(this.state.data)
 			})
 			.catch((erro) => console.log(erro.response.data));
 	};
