@@ -674,7 +674,7 @@ class Home extends Component {
 		});
 
 		return (
-			<div className="bloco">
+			<div className="bloco-favoritos">
 				<div>
 					<Header></Header>
 					<h1 className="title">Seus Favoritos</h1>
