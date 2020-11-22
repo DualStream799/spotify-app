@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import AddMusicToPlaylist from "./components/AddMusicToPlaylist"
+import DarkModeToggle from './components/DarkModeToggle'
+
 
 import $ from 'jquery';
 import axios from 'axios';
@@ -931,6 +933,9 @@ class Home extends Component {
 						>
 							Escutando
 						</button>
+						
+						<DarkModeToggle />
+
 						<iframe class="player" src={this.state.lastPlayedTrackUrl} frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
 						<div className="lado2">
