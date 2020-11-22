@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {AddMusicToPlaylist} from "./AddMusicToPlaylist"
 import Select from '@material-ui/core/Select';
 import { shallow } from 'enzyme';
