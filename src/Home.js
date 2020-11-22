@@ -55,7 +55,8 @@ class Home extends Component {
 			userId: '',
 			maisOuvidasM: [],
 			recomendacoes: false,
-			recomendacoesPag: false
+			recomendacoesPag: false,
+			lastPlayedTrackUrl: ''
 		};
 
 		this.recomendacoesPag = this.recomendacoesPag.bind(this);
@@ -79,6 +80,7 @@ class Home extends Component {
 		this.topMusic = this.topMusic.bind(this);
 		this.gera = this.gera.bind(this);
 		this.pag_recomend = this.pag_recomend.bind(this);
+		this.lastPlayedTrackUrl = this.lastPlayedTrackUrl.bind(this);
 	}
 
 
@@ -351,6 +353,7 @@ class Home extends Component {
 					home: false,
 					recomendacoesPag: false
 				});
+
 			})
 			.catch((erro) => console.log(erro.response.data));
 	};
@@ -834,6 +837,20 @@ class Home extends Component {
 		);
 	};
 
+	lastPlayedTrackUrl = () => {
+		axios.get('https://api.spotify.com/v1/me/tracks?limit=1', {
+				headers: {
+					Authorization: `Bearer ${this.state.token}`
+				}
+			})
+			.then((response) => {
+				this.setState({
+				lastPlayedTrackUrl: "https://open.spotify.com/embed/track/" + response.data.items[0].track.id
+				});
+			})
+			.catch((erro) => console.log(erro.response.data));
+	}
+
 	render() {
 		return (
 			<div className="body_home">
@@ -914,6 +931,7 @@ class Home extends Component {
 						>
 							Escutando
 						</button>
+						<iframe class="player" src={this.state.lastPlayedTrackUrl} frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
 						<div className="lado2">
 							<a href=" https://pt-br.facebook.com/">
@@ -932,7 +950,7 @@ class Home extends Component {
 					</div>
 				</div>
 
-				{this.state.home && (
+				{this.state.home && this.lastPlayedTrackUrl() && (
 					<div className="blocoHome">
 						<div>
 							<img src={logoLindo} />
@@ -957,7 +975,6 @@ class Home extends Component {
 				{this.state.topMusicas && <div>{this.fav_musics()}</div>}
 				{this.state.recomendacoes && <div>{this.recomendacoesPag()}</div>}
 				{this.state.recomendacoesPag && <div>{this.pag_recomend()}</div>}
-				{/* </div> */}
 			</div>
 		);
 	}
