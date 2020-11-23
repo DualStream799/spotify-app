@@ -54,7 +54,7 @@ class Home extends Component {
 			maisOuvidasM: [],
 			recomendacoes: false,
 			recomendacoesPag: false,
-			lastPlayedTrackUrl: ''
+			recentlyPlayedTrack: ''
 		};
 
 		this.recomendacoesPag = this.recomendacoesPag.bind(this);
@@ -78,7 +78,7 @@ class Home extends Component {
 		this.topMusic = this.topMusic.bind(this);
 		this.gera = this.gera.bind(this);
 		this.pag_recomend = this.pag_recomend.bind(this);
-		this.lastPlayedTrackUrl = this.lastPlayedTrackUrl.bind(this);
+		this.recentlyPlayedTrack = this.recentlyPlayedTrack.bind(this);
 	}
 
 	getHashParams() {
@@ -492,24 +492,18 @@ class Home extends Component {
 	};
 
 	fav_artists = () => {
+		var artistUrlStart = "https://open.spotify.com/follow/1/?uri=spotify:artist:";
+		var artistUrlEnd = "&size=detail&theme=dark";
 		var cantores = this.state.dataTopA;
 		var cantor = cantores.map((topCantores) => {
 			return (
-				<div className="grid-item">
-					<img className="imagesRound" src={topCantores.images[0].url} width={150} height={150} />
-					<div className="centralizacao">
-						<p className="TrackName">{topCantores.name}</p>
-						<p className="Texto">
-							{' '}
+				<div class="grid-item">
+					<iframe class="follow_artist" src={artistUrlStart + topCantores.id + artistUrlEnd}
+					scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+						<p class="Texto" align="center">
 							<AiFillCustomerService /> {topCantores.genres[0]}
 						</p>
-
-						<p className="Texto">
-							<AiOutlineTeam />
-							{topCantores.followers.total.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')}
-						</p>
 					</div>
-				</div>
 			);
 		});
 		return (
@@ -817,22 +811,23 @@ class Home extends Component {
 		);
 	};
 
-	lastPlayedTrackUrl = () => {
-		axios.get('https://api.spotify.com/v1/me/tracks?limit=1', {
+	recentlyPlayedTrack = () => {
+		axios.get('https://api.spotify.com/v1/me/player/recently-played', {
 				headers: {
 					Authorization: `Bearer ${this.state.token}`
 				}
 			})
 			.then((response) => {
 				this.setState({
-				lastPlayedTrackUrl: "https://open.spotify.com/embed/track/" + response.data.items[0].track.id
+					recentlyPlayedTrack: response.data.items[0].track.id
 				});
+				console.log(response.data.items)
 			})
 			.catch((erro) => console.log(erro.response.data));
 	}
 
 	render() {
-
+		var recentlyPlayedTrackUrl =  "https://open.spotify.com/embed/track/" + this.state.recentlyPlayedTrack;
 		console.log(this.state)
 		return (
 			<div className="body_home">
@@ -913,7 +908,7 @@ class Home extends Component {
 						>
 							Escutando
 						</button>
-						<iframe class="player" src={this.state.lastPlayedTrackUrl} frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+						<iframe class="player" src={recentlyPlayedTrackUrl} frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
 						<div className="lado2">
 							<a href=" https://pt-br.facebook.com/">
@@ -932,7 +927,7 @@ class Home extends Component {
 					</div>
 				</div>
 
-				{this.state.home && this.lastPlayedTrackUrl() && (
+				{this.state.home && this.recentlyPlayedTrack() && (
 					<div className="blocoHome">
 						<div>
 							<img src={logoLindo} />
