@@ -834,22 +834,22 @@ class Home extends Component {
 	recentlyPlayedTrack = () => {
 		axios.get('https://api.spotify.com/v1/me/player/recently-played', {
 				headers: {
-					Authorization: `Bearer ${this.state.token}`
+					Authorization: `Bearer ${this.token}`
 				}
 			})
 			.then((response) => {
 				this.setState({
 					recentlyPlayedTrack: response.data.items[0].track.id
 				});
-				console.log(response.data.items)
 			})
 			.catch((erro) => console.log(erro.response.data));
 	}
 
 	render() {
+
+		var recentlyPlayedTrackUrl = "https://open.spotify.com/embed/track/" + this.state.recentlyPlayedTrack
 		return (
 			<div className="body_home">
-				{/* <div className="container"> */}
 				<div className="Home">
 					<div class="img" />
 					<div className="botoes">
