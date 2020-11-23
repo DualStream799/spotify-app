@@ -929,9 +929,9 @@ class Home extends Component {
 						<iframe class="player" src={recentlyPlayedTrackUrl} frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
 						<div className="lado2">
-							<a href=" https://pt-br.facebook.com/">
+							<FacebookShareButton url={'https://musics4u.herokuapp.com/'} quote={'Utilize o Musics4U para tirar o maior proveito do seu Spotify!'}>
 								<AiFillFacebook color={'white'} size={40} />
-							</a>
+							</FacebookShareButton>
 							<a href="https://twitter.com/login?lang=pt">
 								<AiFillTwitterSquare color={'white'} size={40} />
 							</a>
