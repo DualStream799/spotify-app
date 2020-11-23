@@ -58,7 +58,7 @@ class Home extends Component {
 			id_musica: '',
 			analise_musica: [],
 			boolean_analise: false
-
+			recentlyPlayedTrack: ''
 		};
 
 		this.recomendacoesPag = this.recomendacoesPag.bind(this);
@@ -84,8 +84,28 @@ class Home extends Component {
 		this.pag_recomend = this.pag_recomend.bind(this);
 		this.analiseMusica = this.analiseMusica.bind(this);
 		this.musicCarac = this.musicCarac.bind(this);
-
+		this.recentlyPlayedTrack = this.recentlyPlayedTrack.bind(this);
 	}
+
+
+	componentDidMount= () => {
+		axios
+			.get('https://api.spotify.com/v1/me/tracks?limit=30', {
+				headers: {
+					Authorization: `Bearer ${this.token}`
+				}
+			})
+			.then((response) => {
+				this.setState({
+					dataTracks: response.data.items,
+					data: response.data.items,
+				});
+				console.log(this.state.data)
+			})
+			.catch((erro) => console.log(erro.response.data));
+	};
+
+}
 
 	getHashParams() {
 		var hashParams = {};
@@ -348,6 +368,7 @@ class Home extends Component {
 					boolean_analise: false,
 					recomendacoesPag: false
 				});
+
 			})
 			.catch((erro) => console.log(erro.response.data));
 	};
@@ -508,24 +529,18 @@ class Home extends Component {
 	};
 
 	fav_artists = () => {
+		var artistUrlStart = "https://open.spotify.com/follow/1/?uri=spotify:artist:";
+		var artistUrlEnd = "&size=detail&theme=dark";
 		var cantores = this.state.dataTopA;
 		var cantor = cantores.map((topCantores) => {
 			return (
-				<div className="grid-item">
-					<img className="imagesRound" src={topCantores.images[0].url} width={150} height={150} />
-					<div className="centralizacao">
-						<p className="TrackName">{topCantores.name}</p>
-						<p className="Texto">
-							{' '}
+				<div class="grid-item">
+					<iframe class="follow_artist" src={artistUrlStart + topCantores.id + artistUrlEnd}
+					scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+						<p class="Texto" align="center">
 							<AiFillCustomerService /> {topCantores.genres[0]}
 						</p>
-
-						<p className="Texto">
-							<AiOutlineTeam />
-							{topCantores.followers.total.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')}
-						</p>
 					</div>
-				</div>
 			);
 		});
 		return (
@@ -927,10 +942,25 @@ class Home extends Component {
 		);
 	};
 
+	recentlyPlayedTrack = () => {
+		axios.get('https://api.spotify.com/v1/me/player/recently-played', {
+				headers: {
+					Authorization: `Bearer ${this.token}`
+				}
+			})
+			.then((response) => {
+				this.setState({
+					recentlyPlayedTrack: response.data.items[0].track.id
+				});
+			})
+			.catch((erro) => console.log(erro.response.data));
+	}
+
 	render() {
+
+		var recentlyPlayedTrackUrl = "https://open.spotify.com/embed/track/" + this.state.recentlyPlayedTrack
 		return (
 			<div className="body_home">
-				{/* <div className="container"> */}
 				<div className="Home">
 					<div class="img" />
 					<div className="botoes">
@@ -1008,11 +1038,12 @@ class Home extends Component {
 						>
 							Escutando
 						</button>
+						<iframe class="player" src={recentlyPlayedTrackUrl} frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
 						<div className="lado2">
-							<a href=" https://pt-br.facebook.com/">
+							<FacebookShareButton url={'https://musics4u.herokuapp.com/'} quote={'Utilize o Musics4U para tirar o maior proveito do seu Spotify!'}>
 								<AiFillFacebook color={'white'} size={40} />
-							</a>
+							</FacebookShareButton>
 							<a href="https://twitter.com/login?lang=pt">
 								<AiFillTwitterSquare color={'white'} size={40} />
 							</a>
@@ -1028,7 +1059,7 @@ class Home extends Component {
 					</div>
 				</div>
 
-				{this.state.home && (
+				{this.state.home && this.recentlyPlayedTrack() && (
 					<div className="blocoHome">
 						<div>
 							<img src={logoLindo} />
@@ -1055,6 +1086,7 @@ class Home extends Component {
 				{this.state.recomendacoesPag && <div>{this.pag_recomend()}</div>}
 				{this.state.boolean_analise && <div>{this.musicCarac()}</div>}
 				{/* </div> */}
+
 			</div>
 		);
 	}

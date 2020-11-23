@@ -1,16 +1,21 @@
 .Home{
-    height:1300px;
+    height:100vh;
     position: fixed; 
-    width: 300px;
+    width: 25vw;
     background: linear-gradient(#454D4B, #8f9b97);
+    flex-grow: row;
+}
 
-    /* background-color:#8f9b97; */
+.player {
+    width: 100%;
+    height: 80px;
+}
 
-    /* position:fixed  */
-
-    /* background-color:#161616f5; */
-    /* border-top-right-radius: 100px;
-    border-bottom-right-radius: 100px; */
+.follow_artist {
+    width: 16.5vw;
+    height: 56px;
+    border: none;
+    overflow: hidden; 
 }
 
 .lado{
@@ -31,45 +36,15 @@
 }
 
 .bloco{
-   
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-left: 300px;
-    margin-top: -35px;
-    padding-top: 30px;
-    max-width: 100%;
+    width: 75vw;
+    margin-left: 25vw;
     color:white;
-    /* min-width: 100%; */
-
-
-}
-
-.form_group {
-    position: relative;
-    padding: 15px 0 0;
-    margin-top: 10px;
-    width: 50%;
-    flex-direction: row;
-    display: flex;
-    margin-left:30px;
-  }
-
-.form_field {
-font-family: inherit;
-width: 100%;
-border: 0;
-border-bottom: 2px solid gray;
-outline: 0;
-font-size: 1.3rem;
-color: white;
-padding: 7px 0;
-background: transparent;
-transition: border-color 0.2s;
 }
 
 .bloco3{
-   
     display: flex;
     align-items: center;
     font-size: 22px;
@@ -84,8 +59,29 @@ transition: border-color 0.2s;
     color:white;
     min-width: 100%;
     margin-top: 300px;
+}
 
+.form_group {
+    position: relative;
+    padding: 15px 0 0;
+    margin-top: 10px;
+    width: 50%;
+    flex-direction: row;
+    display: flex;
+    margin-left:30px;
+}
 
+.form_field {
+font-family: inherit;
+width: 100%;
+border: 0;
+border-bottom: 2px solid gray;
+outline: 0;
+font-size: 1.3rem;
+color: white;
+padding: 7px 0;
+background: transparent;
+transition: border-color 0.2s;
 }
 
 .btnSearch{
@@ -111,14 +107,10 @@ transition: border-color 0.2s;
 }
 
 .body_home{
-    /* background: linear-gradient(#000000,#454D4B); */
-    /* background-color: #FFFFFF; */
     display: flex;
     justify-content: flex-start;
-    
-    
-   
 }
+
 .link {
     text-decoration: none !important;
     color: white;
@@ -127,16 +119,12 @@ transition: border-color 0.2s;
 .img {
     filter: blur(8px);
     -webkit-filter: blur(8px);
-    /* background-image: url("./src/logoLindo.png"); */
 }
 
 .botoes{
     text-decoration: none;
     text-decoration-line: none;
     text-decoration-color:#FFFFFF;
-    /* display: flex;
-    justify-content: center;
-    flex-direction: ro; */
     display: grid;
     grid-template-columns: auto; 
     grid-gap: 30px;
@@ -153,7 +141,6 @@ transition: border-color 0.2s;
 
 .imagesRound{
     display: flex;
-    /* flex-direction: column; */
     border-radius: 100px;
     align-self: center;
     display: block;
@@ -191,9 +178,6 @@ transition: border-color 0.2s;
     outline-offset: none !important;
 
 }
-.descArt{
-    /* margin-left: 30px; */
-}
 
 .coluna{
     display: flex;
@@ -224,7 +208,6 @@ transition: border-color 0.2s;
 
 .container{
     display: flex;
-    /* align-items: center; */
     color: white;
 }
 
@@ -240,6 +223,7 @@ transition: border-color 0.2s;
     flex-direction: column;
     color:white;
 }
+
 .lineORetorno{
     width:920px;
     margin:15px;
@@ -250,13 +234,9 @@ transition: border-color 0.2s;
     width:100%;
     margin:15px;
     color:#454D4B;
-    /* margin-top:40px;
-    margin-bottom:40px; */
 }
 
 .centro{
-    
-    /* margin-left: 430px; */
     display: block;
     align-self: flex-end;
     margin-left: auto;
@@ -267,13 +247,10 @@ transition: border-color 0.2s;
     color:#FFFFFF;
     font-size:50px;
     font-family: Arial, Helvetica, sans-serif;
-    margin-left:20px;
-    /* margin-bottom: 40px; */
-    
+    margin-left:20px;    
 }
 
 .escutados{
-    /* background-color: seagreen; */
     align-items: flex-start;
     display: flex;
     flex: 1;
@@ -281,8 +258,6 @@ transition: border-color 0.2s;
     color:white;
     min-width: 100%;
     width: 100%;
-    /* margin-left: -600px; */
-    /* background-color: skyblue; */
 }
 
 .antigas{
@@ -306,7 +281,6 @@ transition: border-color 0.2s;
     padding-left: 25px;
     color:white;
     justify-content: space-between;
-    /* background-color: sandybrown; */
     font-size: 24px;
     margin-bottom: 20px;
     font-weight: bold;
@@ -319,7 +293,6 @@ transition: border-color 0.2s;
     padding-left: 25px;
     color:white;
     justify-content: space-between;
-    /* background-color: sandybrown; */
     font-size: 26px;
     margin-bottom: 20px;
     font-weight: bold;
@@ -327,20 +300,14 @@ transition: border-color 0.2s;
 
 .grid-container {
   display: grid;
-  /* flex:1; */
   grid-template-columns: 1fr 1fr 1fr 1fr; 
-  /* padding: 10px;  */
   align-items: center;
-  /* flex-direction: row; */
 }
 
 .tracks-container {
     display: grid;
-    /* flex:1; */
     grid-template-columns: 1fr 1fr 1fr; 
-    /* padding: 10px;  */
     align-items: left;
-    /* flex-direction: row; */
   }
 
 .musicas{
@@ -349,27 +316,18 @@ transition: border-color 0.2s;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    /* padding-left: 20px; */
     color:white;
     
 }
 
 .grid-item{
-    /* display: flex;
-    justify-content:center; */
-    /* margin-left:20px; */
-    height:350px;
+    margin: 1vw;
+    flex-direction: row;
     color:white;
-    /* background-color: salmon; */
     
 }
 
 .TrackName{
-    /* display:flex;
-    flex-shrink: 1;
-    max-width:180px;
-    text-align:center; */
-    /* background-color: red; */
     font-weight: bold;
     font-size: 25px;
     margin-bottom: -10px;
@@ -382,35 +340,24 @@ transition: border-color 0.2s;
 .containerEscutando{
     display: flex;
     flex-direction: column;
-    
-    /* background-image:url(yourimage);
-    background-size: 1px 1px; */
 }
 
 .Texto{
-    margin-bottom: -10px;
     color:white;
 }
 
 .centralizacao{
-    /* display: flex;
-    flex-direction: column; */
+
     text-align: center;
-    /* background-color: royalblue; */
-    /* margin-bottom: 50px; */
+
 }
 
 
 .blocoEscutando {
     display:flex;
-    flex:1;
+    width: 75vw;
     flex-direction: column;
-    align-items:center;
-    /* width:1219px; */
-
-    /* margin-left: 300px; */
-    
-    
+    align-items: center;
 }
 
 .musicatxt{
@@ -422,7 +369,7 @@ transition: border-color 0.2s;
 }
 
 .antigastxt{
-    width:150px;
+    flex-grow: row;
 }
 
 .albumtxt{
@@ -436,11 +383,10 @@ transition: border-color 0.2s;
 
 .containerGeral{
 
-    width:100vh;
-    margin-left: 300px;
+    width:100vw;
+    margin-left: 25vw;
     flex:1;
     display:flex;
-    /* align-items:center; */
     flex-direction: column;
     height: 100%;
     min-height: 100%;
@@ -495,7 +441,6 @@ transition: border-color 0.2s;
 .generos{
     display: grid;
     grid-template-columns: 4fr 4fr 4fr;
-    /* margin-top: 50px; */
     margin-left: 130px;
 }
 
