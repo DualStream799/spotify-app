@@ -1044,9 +1044,9 @@ class Home extends Component {
 							<FacebookShareButton url={'https://musics4u.herokuapp.com/'} quote={'Utilize o Musics4U para tirar o maior proveito do seu Spotify!'}>
 								<AiFillFacebook color={'white'} size={40} />
 							</FacebookShareButton>
-							<a href="https://twitter.com/login?lang=pt">
+							<TwitterShareButton url={'https://musics4u.herokuapp.com/'} title={'Estou utilizando o Musics4U para tirar o maior proveito do meu Spotify!'} hashtags={['Music4U']}>
 								<AiFillTwitterSquare color={'white'} size={40} />
-							</a>
+							</TwitterShareButton>					
 							<a href=" https://www.instagram.com/">
 								<AiFillInstagram color={'white'} size={40} />
 							</a>
