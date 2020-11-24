@@ -37,20 +37,22 @@ body{
 }
 
 .botao{
-
   background-color: transparent;
   border-color: transparent;
-  height: 150px;
-  width: 150px;
-  margin-right: 65px;
-
  }
 
  .botao1{
-
   height: 70px;
-  
+  width: auto;
+  margin: 0 3rem;
+ }
 
+ .botoesBar{
+   display: flex;
+   margin: 1rem 15rem;
+   flex-direction: row;
+   width: 100%;
+   justify-content:center;
  }
 
 
