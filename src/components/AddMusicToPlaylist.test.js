@@ -9,6 +9,6 @@ const rendered = shallow(<AddMusicToPlaylist playlists = {{"teste1": "1"}} class
 const state = rendered.instance().state;
 
 
-it("should render the Homepage for the logged in user (Heisenberg)", () => {
+it("props value should be tha same as state", () => {
     expect(rendered.find(Select).props().value).toEqual(state.selectedPlaylist);
 })
