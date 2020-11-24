@@ -22,7 +22,6 @@ class Home extends Component {
 		super(props);
 		const parametros = this.getHashParams();
 		this.token = parametros.access_token;
-		this.playlist_id = '58MiN40bVN6Z2lOOm3lVyJ';
 
 		this.state = {
 			data: [],
@@ -289,15 +288,10 @@ class Home extends Component {
 							) : (
 								<h4 className="info2"> Playlist Privada </h4>
 							)}
-
-							<button
-								class="btn"
-								style={{ backgroundColor: this.state.topArtistas ? '#454D4B' : 'transparent' }}
-								onClick={this.playlistTracks}
-							>
-							Musics
-							</button>
 						</div>
+						<button type="submit" onClick={() => {this.playlistTracks(playlist.id)}} className="btnSearch">
+							Musics
+						</button>
 					</div>
 					<hr className="lineORetorno" />
 				</div>
@@ -313,9 +307,9 @@ class Home extends Component {
 	};
 
 	// ---------------------------- playlist tracks -------------------------------
-	playlistTracks = () => {
+	playlistTracks = (playlist_id) => {
 		axios
-			.get('https://api.spotify.com/v1/playlists/' + this.playlist_id + '/tracks', {
+			.get('https://api.spotify.com/v1/playlists/' + playlist_id + '/tracks', {
 				headers: {
 					Authorization: `Bearer ${this.token}`
 				}
