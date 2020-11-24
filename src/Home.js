@@ -59,7 +59,7 @@ class Home extends Component {
 			analise_musica: [],
 			boolean_analise: false,
 			recentlyPlayedTrack: '',
-			isLogedIn : false
+			isLoggedIn : false
 		};
 
 		this.recomendacoesPag = this.recomendacoesPag.bind(this);
@@ -145,7 +145,7 @@ class Home extends Component {
 					home: false,
 					boolean_analise: false,
 					recomendacoesPag: false,
-					isLogedIn : true
+					isLoggedIn : true
 					
 				});
 			})
@@ -185,7 +185,7 @@ class Home extends Component {
 		});
 		return (
 			<div>{
-				!this.state.isLogedIn?<div className="bloco"> <h1 className="title">Por favor, faça login</h1></div> :
+				!this.state.isLoggedIn?<div className="bloco"> <h1 className="title">Por favor, faça login</h1></div> :
 				<div className="bloco">
 					<h1 className="title">Minhas Músicas</h1>
 					<div className="separando">
@@ -230,7 +230,7 @@ class Home extends Component {
 					home: false,
 					boolean_analise: false,
 					recomendacoesPag: false,
-					isLogedIn : true
+					isLoggedIn : true
 				});
 			})
 			.catch((erro) => this.setState({Novidades: true}));
@@ -253,7 +253,7 @@ class Home extends Component {
 		});
 		return (
 			<div>{
-				!this.state.isLogedIn?<div className="bloco"> <h1 className="title">Por favor, faça login</h1></div> :
+				!this.state.isLoggedIn?<div className="bloco"> <h1 className="title">Por favor, faça login</h1></div> :
 				<div className="bloco">
 					<h1 className="title">Novos lançamentos</h1>
 					<div className="grid-container">{lancamento}</div>
@@ -288,7 +288,7 @@ class Home extends Component {
 					home: false,
 					boolean_analise: false,
 					recomendacoesPag: false,
-					isLogedIn : true
+					isLoggedIn : true
 				});
 			})
 			.catch((erro) => this.setState({Userplaylist: true}));
@@ -324,7 +324,7 @@ class Home extends Component {
 
 		return (
 			<div>
-				{!this.state.isLogedIn?<div className="bloco"> <h1 className="title">Por favor, faça login</h1></div> :
+				{!this.state.isLoggedIn?<div className="bloco"> <h1 className="title">Por favor, faça login</h1></div> :
 				<div className="bloco">
 					<h1 className="title">Suas playlists</h1>
 					<div> {playlistImg}</div>
@@ -359,7 +359,7 @@ class Home extends Component {
 					home: false,
 					boolean_analise: false,
 					recomendacoesPag: false,
-					isLogedIn : true
+					isLoggedIn : true
 				});
 			})
 			.catch((erro) => console.log(erro.response.data));
@@ -387,7 +387,7 @@ class Home extends Component {
 					home: false,
 					boolean_analise: false,
 					recomendacoesPag: false,
-					isLogedIn : true
+					isLoggedIn : true
 				});
 
 			})
@@ -483,7 +483,7 @@ class Home extends Component {
 					maisOuvidasM: response.data.items[0].id,
 					recomendacoesPag: false,
 					boolean_analise: false,
-					isLogedIn : true
+					isLoggedIn : true
 				});
 			})
 			.catch((erro) => this.setState({topMusicas: true}));
@@ -511,7 +511,7 @@ class Home extends Component {
 
 		return (
 			<div>
-				{!this.state.isLogedIn?<div className="bloco"> <h1 className="title">Por favor, faça login</h1></div> :
+				{!this.state.isLoggedIn?<div className="bloco"> <h1 className="title">Por favor, faça login</h1></div> :
 				<div className="bloco">
 					<h1 className="title">Suas Músicas Favoritas</h1>
 					<div className="grid-container">{musica}</div>
@@ -549,7 +549,7 @@ class Home extends Component {
 					home: false,
 					boolean_analise: false,
 					recomendacoesPag: false,
-					isLogedIn : true
+					isLoggedIn : true
 				});
 			})
 			.catch((erro) => this.setState({topArtistas: true}));
@@ -572,7 +572,7 @@ class Home extends Component {
 		});
 		return (
 			<div>{
-				!this.state.isLogedIn?<div className="bloco"> <h1 className="title">Por favor, faça login</h1></div> :
+				!this.state.isLoggedIn?<div className="bloco"> <h1 className="title">Por favor, faça login</h1></div> :
 				<div className="bloco">
 					<h1 className="title">Seus Artistas Favoritos</h1>
 					<div className="grid-container">{cantor}</div>
@@ -609,7 +609,7 @@ class Home extends Component {
 					geraPlaylist: true,
 					boolean_analise: false,
 					recomendacoesPag: false,
-					isLogedIn : true
+					isLoggedIn : true
 				});
 			})
 			.catch((erro) => console.log(erro.response.data));
@@ -678,7 +678,7 @@ class Home extends Component {
 					home: false,
 					boolean_analise: false,
 					recomendacoesPag: false,
-					isLogedIn : true
+					isLoggedIn : true
 				});
 			})
 			.catch((erro) => console.log(erro.response.data));
@@ -826,7 +826,7 @@ class Home extends Component {
 					recomendacoes: true,
 					boolean_analise: false,
 					recomendacoesPag: false,
-					isLogedIn : true
+					isLoggedIn : true
 				});
 			})
 			.catch((erro) => console.log(erro.response.data));
@@ -865,7 +865,7 @@ class Home extends Component {
 					home: false,
 					boolean_analise: true,
 					recomendacoesPag: false,
-					isLogedIn : true
+					isLoggedIn : true
 					
 					
 				});
@@ -952,7 +952,7 @@ class Home extends Component {
 					recomendacoes: false,
 					boolean_analise: false,
 					recomendacoesPag: true,
-					isLogedIn : true
+					isLoggedIn : true
 				});
 			})
 			.catch((erro) => console.log(erro.response.data));
