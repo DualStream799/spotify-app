@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import AddMusicToPlaylist from "./components/AddMusicToPlaylist"
 import $ from 'jquery';
 import axios from 'axios';
 import './Home.css';
@@ -57,7 +57,7 @@ class Home extends Component {
 			recomendacoesPag: false,
 			id_musica: '',
 			analise_musica: [],
-			boolean_analise: false
+			boolean_analise: false,
 			recentlyPlayedTrack: ''
 		};
 
@@ -105,7 +105,7 @@ class Home extends Component {
 			.catch((erro) => console.log(erro.response.data));
 	};
 
-}
+
 
 	getHashParams() {
 		var hashParams = {};
@@ -171,7 +171,10 @@ class Home extends Component {
 						<p>
 							{minutos}:{tempo.toFixed(0)}
 						</p>
+						<AddMusicToPlaylist playlists = {this.state.data} tracks = {songs.track} token = {this.token} />
 						<button onClick={() => this.analiseMusica(songs.track.id)}>Analise da Musica</button>
+						
+						
 					</div>
 					
 					<hr className="line" />
@@ -186,7 +189,7 @@ class Home extends Component {
 					<div className="Texto"> Artista</div>
 					<div className="Texto"> Tempo</div>
 					<div className="Texto"> Analise</div>
-
+					
 				</div>
 				<div className="tracks-container">
 					<div>{track_saved}</div>
