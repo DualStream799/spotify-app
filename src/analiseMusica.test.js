@@ -7,7 +7,8 @@ import Select from '@material-ui/core/Select';
 it("should render minhas musicas com botão analise", () => {
     const props = {
         likedTracks: true,
-        boolean_analise: false
+        boolean_analise: false,
+        isLogedIn : true
     }
     const app = mount(<Home {...props} />)
     expect(toJson(app)).toMatchSnapshot()
@@ -15,9 +16,12 @@ it("should render minhas musicas com botão analise", () => {
 it("should render analise", () => {
     const props = {
         likedTracks: false,
-        boolean_analise: true
+        boolean_analise: true,
+        isLogedIn : true
     }
     const app = mount(<Home {...props} />)
     expect(toJson(app)).toMatchSnapshot()
 })
+
+
 
