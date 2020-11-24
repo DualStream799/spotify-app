@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import AddMusicToPlaylist from "./components/AddMusicToPlaylist"
 import $ from 'jquery';
 import axios from 'axios';
 import './Home.css';
@@ -10,8 +10,6 @@ import {
 	AiFillInstagram,
 	AiFillTwitterSquare,
 	AiOutlineLinkedin,
-	
-
 } from 'react-icons/ai';
 import logoLindo from './logoLindo.png';
 import {FacebookShareButton, RedditShareButton, TwitterShareButton, WhatsappShareButton, EmailShareButton, FacebookIcon, RedditIcon, EmailIcon, TwitterIcon, WhatsappIcon } from 'react-share';
@@ -174,7 +172,10 @@ class Home extends Component {
 						<p>
 							{minutos}:{tempo.toFixed(0)}
 						</p>
+						<AddMusicToPlaylist playlists = {this.state.data} tracks = {songs.track} token = {this.token} />
 						<button onClick={() => this.analiseMusica(songs.track.id)}>Analise da Musica</button>
+						
+						
 					</div>
 					
 					<hr className="line" />
@@ -189,7 +190,7 @@ class Home extends Component {
 					<div className="Texto"> Artista</div>
 					<div className="Texto"> Tempo</div>
 					<div className="Texto"> Analise</div>
-
+					
 				</div>
 				<div className="tracks-container">
 					<div>{track_saved}</div>
