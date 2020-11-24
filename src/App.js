@@ -3,8 +3,10 @@ import logo from './logo.svg';
 import './App.css';
 import $ from 'jquery';
 import logoLindo from './logoLindo.png';
-import botao from './botao.png';
+import btnInscrever from './inscrever.png';
+import btnEntrar from './entre.png'
 import { Link } from 'react-router-dom';
+require('./App.css');
 
 class App extends React.Component {
 	// constructor(props) {
@@ -54,24 +56,23 @@ class App extends React.Component {
 	// }
 	// <button onClick={this.Userplaylist}>Buscar playlist do user</button>*/
 
+	cadastroPopUp = () => {
+		window.open("https://www.spotify.com/br/signup/", "Popup","toolbar=no, location=no, statusbar=no, menubar=no, scrollbars=1, resizable=0, width=580, height=600, top=30")
+	   }
+
 	render() {
 		return (
 			<div className="App">
 				<div>
-					{/* <Link to={'/home/'}>OIIIII</Link> */}
-					{/* <button>
-					<a href="/home/">Página principal</a>
-				</button> */}
-
 					<img className="logo" src={logoLindo} alt="logo" />
 				</div>
-				<div>
-					<button className="botao">
-						{/* <a href="http://localhost:8888/login"> */}
-						<a href="https://spotifyapimanager.herokuapp.com/login">
-							<img className="botao1" src={botao} alt="botao" />
+				<div className='botoesBar'>
+						<a href="https://spotifyapimanager.herokuapp.com/login" >
+							<img className="botao1" src={btnEntrar} alt="botão login" />
 						</a>
-					</button>
+						<a target='popup' onClick={this.cadastroPopUp}>
+							<img className='botao1' src={btnInscrever} alt='botão inscreva-se'/>
+						</a>
 				</div>
 			</div>
 		);
