@@ -3,7 +3,6 @@
 exports[`should render analise 1`] = `
 <Home
   boolean_analise={true}
-  isLogedIn={true}
   likedTracks={false}
 >
   <div
@@ -105,183 +104,89 @@ exports[`should render analise 1`] = `
         >
           Escutando
         </button>
-        <iframe
-          allow="encrypted-media"
-          allowtransparency="true"
-          class="player"
-          frameborder="0"
-          src="https://open.spotify.com/embed/track/"
-        />
         <div
           className="lado2"
         >
-          <ForwardRef(ShareButton-facebook)
-            quote="Utilize o Musics4U para tirar o maior proveito do seu Spotify!"
-            url="https://musics4u.herokuapp.com/"
+          <a
+            href=" https://pt-br.facebook.com/"
           >
-            <ShareButton
-              disabledStyle={
-                Object {
-                  "opacity": 0.6,
-                }
-              }
-              forwardedRef={null}
-              networkLink={[Function]}
-              networkName="facebook"
-              openShareDialogOnClick={true}
-              opts={
-                Object {
-                  "hashtag": undefined,
-                  "quote": "Utilize o Musics4U para tirar o maior proveito do seu Spotify!",
-                }
-              }
-              resetButtonStyle={true}
-              url="https://musics4u.herokuapp.com/"
-              windowHeight={400}
-              windowWidth={550}
+            <AiFillFacebook
+              color="white"
+              size={40}
             >
-              <button
-                aria-label="facebook"
-                className="react-share__ShareButton"
-                onClick={[Function]}
-                style={
+              <IconBase
+                attr={
                   Object {
-                    "backgroundColor": "transparent",
-                    "border": "none",
-                    "color": "inherit",
-                    "cursor": "pointer",
-                    "font": "inherit",
-                    "padding": 0,
+                    "viewBox": "0 0 1024 1024",
                   }
                 }
+                color="white"
+                size={40}
               >
-                <AiFillFacebook
+                <svg
                   color="white"
+                  fill="currentColor"
+                  height={40}
                   size={40}
-                >
-                  <IconBase
-                    attr={
-                      Object {
-                        "viewBox": "0 0 1024 1024",
-                      }
+                  stroke="currentColor"
+                  strokeWidth="0"
+                  style={
+                    Object {
+                      "color": "white",
                     }
-                    color="white"
-                    size={40}
-                  >
-                    <svg
-                      color="white"
-                      fill="currentColor"
-                      height={40}
-                      size={40}
-                      stroke="currentColor"
-                      strokeWidth="0"
-                      style={
-                        Object {
-                          "color": "white",
-                        }
-                      }
-                      viewBox="0 0 1024 1024"
-                      width={40}
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-92.4 233.5h-63.9c-50.1 0-59.8 23.8-59.8 58.8v77.1h119.6l-15.6 120.7h-104V912H539.2V602.2H434.9V481.4h104.3v-89c0-103.3 63.1-159.6 155.3-159.6 44.2 0 82.1 3.3 93.2 4.8v107.9z"
-                        key="0"
-                      />
-                    </svg>
-                  </IconBase>
-                </AiFillFacebook>
-              </button>
-            </ShareButton>
-          </ForwardRef(ShareButton-facebook)>
-          <ForwardRef(ShareButton-twitter)
-            hashtags={
-              Array [
-                "Music4U",
-              ]
-            }
-            title="Estou utilizando o Musics4U para tirar o maior proveito do meu Spotify!"
-            url="https://musics4u.herokuapp.com/"
+                  }
+                  viewBox="0 0 1024 1024"
+                  width={40}
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-92.4 233.5h-63.9c-50.1 0-59.8 23.8-59.8 58.8v77.1h119.6l-15.6 120.7h-104V912H539.2V602.2H434.9V481.4h104.3v-89c0-103.3 63.1-159.6 155.3-159.6 44.2 0 82.1 3.3 93.2 4.8v107.9z"
+                    key="0"
+                  />
+                </svg>
+              </IconBase>
+            </AiFillFacebook>
+          </a>
+          <a
+            href="https://twitter.com/login?lang=pt"
           >
-            <ShareButton
-              disabledStyle={
-                Object {
-                  "opacity": 0.6,
-                }
-              }
-              forwardedRef={null}
-              networkLink={[Function]}
-              networkName="twitter"
-              openShareDialogOnClick={true}
-              opts={
-                Object {
-                  "hashtags": Array [
-                    "Music4U",
-                  ],
-                  "related": undefined,
-                  "title": "Estou utilizando o Musics4U para tirar o maior proveito do meu Spotify!",
-                  "via": undefined,
-                }
-              }
-              resetButtonStyle={true}
-              url="https://musics4u.herokuapp.com/"
-              windowHeight={400}
-              windowWidth={550}
+            <AiFillTwitterSquare
+              color="white"
+              size={40}
             >
-              <button
-                aria-label="twitter"
-                className="react-share__ShareButton"
-                onClick={[Function]}
-                style={
+              <IconBase
+                attr={
                   Object {
-                    "backgroundColor": "transparent",
-                    "border": "none",
-                    "color": "inherit",
-                    "cursor": "pointer",
-                    "font": "inherit",
-                    "padding": 0,
+                    "viewBox": "0 0 1024 1024",
                   }
                 }
+                color="white"
+                size={40}
               >
-                <AiFillTwitterSquare
+                <svg
                   color="white"
+                  fill="currentColor"
+                  height={40}
                   size={40}
-                >
-                  <IconBase
-                    attr={
-                      Object {
-                        "viewBox": "0 0 1024 1024",
-                      }
+                  stroke="currentColor"
+                  strokeWidth="0"
+                  style={
+                    Object {
+                      "color": "white",
                     }
-                    color="white"
-                    size={40}
-                  >
-                    <svg
-                      color="white"
-                      fill="currentColor"
-                      height={40}
-                      size={40}
-                      stroke="currentColor"
-                      strokeWidth="0"
-                      style={
-                        Object {
-                          "color": "white",
-                        }
-                      }
-                      viewBox="0 0 1024 1024"
-                      width={40}
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zM727.3 401.7c.3 4.7.3 9.6.3 14.4 0 146.8-111.8 315.9-316.1 315.9-63 0-121.4-18.3-170.6-49.8 9 1 17.6 1.4 26.8 1.4 52 0 99.8-17.6 137.9-47.4-48.8-1-89.8-33-103.8-77 17.1 2.5 32.5 2.5 50.1-2a111 111 0 0 1-88.9-109v-1.4c14.7 8.3 32 13.4 50.1 14.1a111.13 111.13 0 0 1-49.5-92.4c0-20.7 5.4-39.6 15.1-56a315.28 315.28 0 0 0 229 116.1C492 353.1 548.4 292 616.2 292c32 0 60.8 13.4 81.1 35 25.1-4.7 49.1-14.1 70.5-26.7-8.3 25.7-25.7 47.4-48.8 61.1 22.4-2.4 44-8.6 64-17.3-15.1 22.2-34 41.9-55.7 57.6z"
-                        key="0"
-                      />
-                    </svg>
-                  </IconBase>
-                </AiFillTwitterSquare>
-              </button>
-            </ShareButton>
-          </ForwardRef(ShareButton-twitter)>
+                  }
+                  viewBox="0 0 1024 1024"
+                  width={40}
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zM727.3 401.7c.3 4.7.3 9.6.3 14.4 0 146.8-111.8 315.9-316.1 315.9-63 0-121.4-18.3-170.6-49.8 9 1 17.6 1.4 26.8 1.4 52 0 99.8-17.6 137.9-47.4-48.8-1-89.8-33-103.8-77 17.1 2.5 32.5 2.5 50.1-2a111 111 0 0 1-88.9-109v-1.4c14.7 8.3 32 13.4 50.1 14.1a111.13 111.13 0 0 1-49.5-92.4c0-20.7 5.4-39.6 15.1-56a315.28 315.28 0 0 0 229 116.1C492 353.1 548.4 292 616.2 292c32 0 60.8 13.4 81.1 35 25.1-4.7 49.1-14.1 70.5-26.7-8.3 25.7-25.7 47.4-48.8 61.1 22.4-2.4 44-8.6 64-17.3-15.1 22.2-34 41.9-55.7 57.6z"
+                    key="0"
+                  />
+                </svg>
+              </IconBase>
+            </AiFillTwitterSquare>
+          </a>
           <a
             href=" https://www.instagram.com/"
           >
@@ -365,6 +270,32 @@ exports[`should render analise 1`] = `
         </div>
       </div>
     </div>
+    <div
+      className="blocoHome"
+    >
+      <div>
+        <img
+          src="logoLindo.png"
+        />
+      </div>
+      <div
+        className="txt"
+      >
+         
+        <h4
+          className="bemVindo"
+        >
+          Bem vindo ao Musics4U!
+        </h4>
+        <p
+          className="homeDesc"
+        >
+           
+          Para ter acesso às suas funcionalidades utilize a navbar ao lado !
+           
+        </p>
+      </div>
+    </div>
   </div>
 </Home>
 `;
@@ -372,7 +303,6 @@ exports[`should render analise 1`] = `
 exports[`should render minhas musicas com botão analise 1`] = `
 <Home
   boolean_analise={false}
-  isLogedIn={true}
   likedTracks={true}
 >
   <div
@@ -474,183 +404,89 @@ exports[`should render minhas musicas com botão analise 1`] = `
         >
           Escutando
         </button>
-        <iframe
-          allow="encrypted-media"
-          allowtransparency="true"
-          class="player"
-          frameborder="0"
-          src="https://open.spotify.com/embed/track/"
-        />
         <div
           className="lado2"
         >
-          <ForwardRef(ShareButton-facebook)
-            quote="Utilize o Musics4U para tirar o maior proveito do seu Spotify!"
-            url="https://musics4u.herokuapp.com/"
+          <a
+            href=" https://pt-br.facebook.com/"
           >
-            <ShareButton
-              disabledStyle={
-                Object {
-                  "opacity": 0.6,
-                }
-              }
-              forwardedRef={null}
-              networkLink={[Function]}
-              networkName="facebook"
-              openShareDialogOnClick={true}
-              opts={
-                Object {
-                  "hashtag": undefined,
-                  "quote": "Utilize o Musics4U para tirar o maior proveito do seu Spotify!",
-                }
-              }
-              resetButtonStyle={true}
-              url="https://musics4u.herokuapp.com/"
-              windowHeight={400}
-              windowWidth={550}
+            <AiFillFacebook
+              color="white"
+              size={40}
             >
-              <button
-                aria-label="facebook"
-                className="react-share__ShareButton"
-                onClick={[Function]}
-                style={
+              <IconBase
+                attr={
                   Object {
-                    "backgroundColor": "transparent",
-                    "border": "none",
-                    "color": "inherit",
-                    "cursor": "pointer",
-                    "font": "inherit",
-                    "padding": 0,
+                    "viewBox": "0 0 1024 1024",
                   }
                 }
+                color="white"
+                size={40}
               >
-                <AiFillFacebook
+                <svg
                   color="white"
+                  fill="currentColor"
+                  height={40}
                   size={40}
-                >
-                  <IconBase
-                    attr={
-                      Object {
-                        "viewBox": "0 0 1024 1024",
-                      }
+                  stroke="currentColor"
+                  strokeWidth="0"
+                  style={
+                    Object {
+                      "color": "white",
                     }
-                    color="white"
-                    size={40}
-                  >
-                    <svg
-                      color="white"
-                      fill="currentColor"
-                      height={40}
-                      size={40}
-                      stroke="currentColor"
-                      strokeWidth="0"
-                      style={
-                        Object {
-                          "color": "white",
-                        }
-                      }
-                      viewBox="0 0 1024 1024"
-                      width={40}
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-92.4 233.5h-63.9c-50.1 0-59.8 23.8-59.8 58.8v77.1h119.6l-15.6 120.7h-104V912H539.2V602.2H434.9V481.4h104.3v-89c0-103.3 63.1-159.6 155.3-159.6 44.2 0 82.1 3.3 93.2 4.8v107.9z"
-                        key="0"
-                      />
-                    </svg>
-                  </IconBase>
-                </AiFillFacebook>
-              </button>
-            </ShareButton>
-          </ForwardRef(ShareButton-facebook)>
-          <ForwardRef(ShareButton-twitter)
-            hashtags={
-              Array [
-                "Music4U",
-              ]
-            }
-            title="Estou utilizando o Musics4U para tirar o maior proveito do meu Spotify!"
-            url="https://musics4u.herokuapp.com/"
+                  }
+                  viewBox="0 0 1024 1024"
+                  width={40}
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-92.4 233.5h-63.9c-50.1 0-59.8 23.8-59.8 58.8v77.1h119.6l-15.6 120.7h-104V912H539.2V602.2H434.9V481.4h104.3v-89c0-103.3 63.1-159.6 155.3-159.6 44.2 0 82.1 3.3 93.2 4.8v107.9z"
+                    key="0"
+                  />
+                </svg>
+              </IconBase>
+            </AiFillFacebook>
+          </a>
+          <a
+            href="https://twitter.com/login?lang=pt"
           >
-            <ShareButton
-              disabledStyle={
-                Object {
-                  "opacity": 0.6,
-                }
-              }
-              forwardedRef={null}
-              networkLink={[Function]}
-              networkName="twitter"
-              openShareDialogOnClick={true}
-              opts={
-                Object {
-                  "hashtags": Array [
-                    "Music4U",
-                  ],
-                  "related": undefined,
-                  "title": "Estou utilizando o Musics4U para tirar o maior proveito do meu Spotify!",
-                  "via": undefined,
-                }
-              }
-              resetButtonStyle={true}
-              url="https://musics4u.herokuapp.com/"
-              windowHeight={400}
-              windowWidth={550}
+            <AiFillTwitterSquare
+              color="white"
+              size={40}
             >
-              <button
-                aria-label="twitter"
-                className="react-share__ShareButton"
-                onClick={[Function]}
-                style={
+              <IconBase
+                attr={
                   Object {
-                    "backgroundColor": "transparent",
-                    "border": "none",
-                    "color": "inherit",
-                    "cursor": "pointer",
-                    "font": "inherit",
-                    "padding": 0,
+                    "viewBox": "0 0 1024 1024",
                   }
                 }
+                color="white"
+                size={40}
               >
-                <AiFillTwitterSquare
+                <svg
                   color="white"
+                  fill="currentColor"
+                  height={40}
                   size={40}
-                >
-                  <IconBase
-                    attr={
-                      Object {
-                        "viewBox": "0 0 1024 1024",
-                      }
+                  stroke="currentColor"
+                  strokeWidth="0"
+                  style={
+                    Object {
+                      "color": "white",
                     }
-                    color="white"
-                    size={40}
-                  >
-                    <svg
-                      color="white"
-                      fill="currentColor"
-                      height={40}
-                      size={40}
-                      stroke="currentColor"
-                      strokeWidth="0"
-                      style={
-                        Object {
-                          "color": "white",
-                        }
-                      }
-                      viewBox="0 0 1024 1024"
-                      width={40}
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zM727.3 401.7c.3 4.7.3 9.6.3 14.4 0 146.8-111.8 315.9-316.1 315.9-63 0-121.4-18.3-170.6-49.8 9 1 17.6 1.4 26.8 1.4 52 0 99.8-17.6 137.9-47.4-48.8-1-89.8-33-103.8-77 17.1 2.5 32.5 2.5 50.1-2a111 111 0 0 1-88.9-109v-1.4c14.7 8.3 32 13.4 50.1 14.1a111.13 111.13 0 0 1-49.5-92.4c0-20.7 5.4-39.6 15.1-56a315.28 315.28 0 0 0 229 116.1C492 353.1 548.4 292 616.2 292c32 0 60.8 13.4 81.1 35 25.1-4.7 49.1-14.1 70.5-26.7-8.3 25.7-25.7 47.4-48.8 61.1 22.4-2.4 44-8.6 64-17.3-15.1 22.2-34 41.9-55.7 57.6z"
-                        key="0"
-                      />
-                    </svg>
-                  </IconBase>
-                </AiFillTwitterSquare>
-              </button>
-            </ShareButton>
-          </ForwardRef(ShareButton-twitter)>
+                  }
+                  viewBox="0 0 1024 1024"
+                  width={40}
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zM727.3 401.7c.3 4.7.3 9.6.3 14.4 0 146.8-111.8 315.9-316.1 315.9-63 0-121.4-18.3-170.6-49.8 9 1 17.6 1.4 26.8 1.4 52 0 99.8-17.6 137.9-47.4-48.8-1-89.8-33-103.8-77 17.1 2.5 32.5 2.5 50.1-2a111 111 0 0 1-88.9-109v-1.4c14.7 8.3 32 13.4 50.1 14.1a111.13 111.13 0 0 1-49.5-92.4c0-20.7 5.4-39.6 15.1-56a315.28 315.28 0 0 0 229 116.1C492 353.1 548.4 292 616.2 292c32 0 60.8 13.4 81.1 35 25.1-4.7 49.1-14.1 70.5-26.7-8.3 25.7-25.7 47.4-48.8 61.1 22.4-2.4 44-8.6 64-17.3-15.1 22.2-34 41.9-55.7 57.6z"
+                    key="0"
+                  />
+                </svg>
+              </IconBase>
+            </AiFillTwitterSquare>
+          </a>
           <a
             href=" https://www.instagram.com/"
           >
@@ -732,6 +568,32 @@ exports[`should render minhas musicas com botão analise 1`] = `
             </AiOutlineLinkedin>
           </a>
         </div>
+      </div>
+    </div>
+    <div
+      className="blocoHome"
+    >
+      <div>
+        <img
+          src="logoLindo.png"
+        />
+      </div>
+      <div
+        className="txt"
+      >
+         
+        <h4
+          className="bemVindo"
+        >
+          Bem vindo ao Musics4U!
+        </h4>
+        <p
+          className="homeDesc"
+        >
+           
+          Para ter acesso às suas funcionalidades utilize a navbar ao lado !
+           
+        </p>
       </div>
     </div>
   </div>
