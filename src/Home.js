@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AddMusicToPlaylist from "./components/AddMusicToPlaylist"
+import AddMusicToPlaylist from "./Components/AddMusicToPlaylist"
 import $ from 'jquery';
 import axios from 'axios';
 import './Home.css';
@@ -11,6 +11,7 @@ import {
 	AiFillTwitterSquare,
 	AiOutlineLinkedin
 } from 'react-icons/ai';
+import Header from './Components/Header'
 import logoLindo from './logoLindo.png';
 import {FacebookShareButton, RedditShareButton, TwitterShareButton, WhatsappShareButton, EmailShareButton, FacebookIcon, RedditIcon, EmailIcon, TwitterIcon, WhatsappIcon } from 'react-share';
 
@@ -183,6 +184,7 @@ class Home extends Component {
 		});
 		return (
 			<div className="bloco">
+				<Header></Header>
 				<h1 className="title">Minhas Músicas</h1>
 				<div className="separando">
 					<div className="Texto"> Músicas</div>
@@ -245,6 +247,7 @@ class Home extends Component {
 		});
 		return (
 			<div className="bloco">
+				<Header></Header>
 				<h1 className="title">Novos lançamentos</h1>
 				<div className="grid-container">{lancamento}</div>
 			</div>
@@ -312,6 +315,7 @@ class Home extends Component {
 
 		return (
 			<div className="bloco">
+				<Header></Header>
 				<h1 className="title">Suas playlists</h1>
 				<div> {playlistImg}</div>
 			</div>
@@ -407,6 +411,7 @@ class Home extends Component {
 							backgroundSize: 0.25
 						}}
 					>
+						<Header></Header>
 						<div className="escutados">
 							<h1 className="title"> Escutando agora </h1>
 						</div>
@@ -548,6 +553,7 @@ class Home extends Component {
 		});
 		return (
 			<div className="bloco">
+				<Header></Header>
 				<h1 className="title">Seus Artistas Favoritos</h1>
 				<div className="grid-container">{cantor}</div>
 			</div>
@@ -701,6 +707,7 @@ class Home extends Component {
 		var teste_generos = generos.map(function(genero) {
 			return (
 				<div className="inputGenero" style={{ backgroundColor: 'white' }}>
+					<Header></Header>
 					<input type="checkbox" name={genero} ref="check_me" onChange={clickGeneros} />
 					<label className="testeCheck" key={genero}>
 						{genero}
@@ -710,8 +717,9 @@ class Home extends Component {
 		});
 
 		return (
-			<div className="bloco">
+			<div className="bloco-favoritos">
 				<div>
+					<Header></Header>
 					<h1 className="title">Seus Favoritos</h1>
 					<p className="descricao">
 						Selecione seus artistas e gêneros favoritos para que possamos criar uma playlist a partir do
@@ -964,6 +972,8 @@ class Home extends Component {
 		var recentlyPlayedTrackUrl = "https://open.spotify.com/embed/track/" + this.state.recentlyPlayedTrack
 		return (
 			<div className="body_home">
+				<Header></Header>
+				{/* <div className="container"> */}
 				<div className="Home">
 					<div class="img" />
 					<div className="botoes">
