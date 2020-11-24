@@ -9,7 +9,9 @@ import {
 	AiFillFacebook,
 	AiFillInstagram,
 	AiFillTwitterSquare,
-	AiOutlineLinkedin
+	AiOutlineLinkedin,
+	
+
 } from 'react-icons/ai';
 import logoLindo from './logoLindo.png';
 import {FacebookShareButton, RedditShareButton, TwitterShareButton, WhatsappShareButton, EmailShareButton, FacebookIcon, RedditIcon, EmailIcon, TwitterIcon, WhatsappIcon } from 'react-share';
@@ -57,7 +59,8 @@ class Home extends Component {
 			recomendacoesPag: false,
 			id_musica: '',
 			analise_musica: [],
-			boolean_analise: false
+			shareWpp: true,
+			boolean_analise: false,
 			recentlyPlayedTrack: ''
 		};
 
@@ -105,7 +108,7 @@ class Home extends Component {
 			.catch((erro) => console.log(erro.response.data));
 	};
 
-}
+
 
 	getHashParams() {
 		var hashParams = {};
@@ -958,6 +961,7 @@ class Home extends Component {
 
 	render() {
 
+
 		var recentlyPlayedTrackUrl = "https://open.spotify.com/embed/track/" + this.state.recentlyPlayedTrack
 		return (
 			<div className="body_home">
@@ -1039,7 +1043,7 @@ class Home extends Component {
 							Escutando
 						</button>
 						<iframe class="player" src={recentlyPlayedTrackUrl} frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-
+						
 						<div className="lado2">
 							<FacebookShareButton url={'https://musics4u.herokuapp.com/'} quote={'Utilize o Musics4U para tirar o maior proveito do seu Spotify!'}>
 								<AiFillFacebook color={'white'} size={40} />
@@ -1053,6 +1057,11 @@ class Home extends Component {
 							<a href=" https://www.linkedin.com/">
 								<AiOutlineLinkedin color={'white'} size={40} />
 							</a>
+							<WhatsappShareButton url={'https://musics4u.herokuapp.com/'} quote={'Utilize o Musics4U para tirar o maior proveito do seu Spotify!'}>
+							
+								<WhatsappIcon bgStyle={{ fill: 'transparent' }} iconFillColor={'white'} size={40} />
+							</WhatsappShareButton>
+
 							
 
 						</div>
