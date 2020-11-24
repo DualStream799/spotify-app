@@ -858,7 +858,7 @@ class Home extends Component {
 		})
 		.then((response) => {
 			this.setState({
-				featuredPlaylists: response.data.playlist.items,
+				featuredPlaylists: response.data.playlists.items,
 				featuredPage: true,
 				Userplaylist: false,
 				Novidades: false,
@@ -872,11 +872,13 @@ class Home extends Component {
 				home: false,
 				recomendacoesPag: false
 			});
+			console.log(this.state.featuredPlaylists)
 		})
 		.catch((erro) => console.log(erro));
 	}
 
 	pagFeaturedP = () => {
+		console.log(this.state.featuredPlaylists)
 		var feat = this.state.featuredPlaylists;
 		var featuredPage = feat.map((featured) => {
 			return (
