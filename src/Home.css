@@ -104,7 +104,6 @@
   max-width: 100%;
   width: 100%;
   color: white;
-  background-color: black;
 }
 
 .bloco-favoritos {
@@ -117,7 +116,6 @@
   padding-top: 30px;
   max-width: 100%;
   color: white;
-  background-color: black;
   width: 87.19%;
 }
 
@@ -190,7 +188,6 @@
 .body_home {
   display: flex;
   justify-content: flex-start;
-  background-color: black;
   height: 100vh;
   /* width: 100vh; */
 }
@@ -590,7 +587,7 @@ input[type="radio"]:checked + label {
 }
 
 .dark-mode {
-  background-color: #171818;
+  background-color: black;
 }
 
 .light-mode {

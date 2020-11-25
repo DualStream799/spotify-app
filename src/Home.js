@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import AddMusicToPlaylist from "./components/AddMusicToPlaylist"
 import DarkModeToggle from './components/DarkModeToggle'
-import AddMusicToPlaylist from "./Components/AddMusicToPlaylist"
 import $ from 'jquery';
 import axios from 'axios';
 import './Home.css';
@@ -13,7 +12,7 @@ import {
 	AiFillTwitterSquare,
 	AiOutlineLinkedin
 } from 'react-icons/ai';
-import Header from './Components/Header'
+import Header from './components/Header/Header'
 import logoLindo from './logoLindo.png';
 import {FacebookShareButton, RedditShareButton, TwitterShareButton, WhatsappShareButton, EmailShareButton, FacebookIcon, RedditIcon, EmailIcon, TwitterIcon, WhatsappIcon } from 'react-share';
 
