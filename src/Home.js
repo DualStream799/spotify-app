@@ -421,6 +421,7 @@ class Home extends Component {
 			return (
 				<div>
 					<div className="antigas">
+						<img src={songs.track.album.images[0].url} width={150} height={150} />
 						<p className="antigastxt">{songs.track.name}</p>
 						<p className="antigastxt">{songs.track.album.artists[0].name}</p>
 					</div>
@@ -434,6 +435,8 @@ class Home extends Component {
 				<div className="separando">
 					<div className="Texto"> Músicas</div>
 					<div className="Texto"> Artista</div>
+					<div className="Texto"> </div>
+					<div className="Texto"> </div>
 				</div>
 				<div className="tracks-container">
 					<div>{track_saved}</div>
