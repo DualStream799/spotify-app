@@ -723,7 +723,7 @@ class Home extends Component {
 						<p class="Texto" align="center">
 							<AiFillCustomerService /> {topCantores.genres[0]}
 						</p>
-						<button type="submit" onClick={() => {this.relatedArtist(topCantores.id)}}class="btn" align="center">
+						<button type="submit" onClick={() => {this.relatedArtist(topCantores.id)}} class="btnSearch" align="center">
 							Related
 						</button>
 					</div>
