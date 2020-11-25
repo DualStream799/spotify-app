@@ -10,7 +10,7 @@ import {
 	AiFillFacebook,
 	AiFillInstagram,
 	AiFillTwitterSquare,
-	AiOutlineLinkedin
+	AiOutlineLinkedin,
 } from 'react-icons/ai';
 import Header from './components/Header/Header'
 import logoLindo from './logoLindo.png';
@@ -24,7 +24,6 @@ class Home extends Component {
 		const parametros = this.getHashParams();
 		this.token = parametros.access_token;
 
-
 		this.state = {
 			data: [],
 			dataLan: [],
@@ -33,10 +32,12 @@ class Home extends Component {
 			dataLast: [],
 			dataTopA: [],
 			dataTopM: [],
+			dataPlaylistTracks: [],
 			dataPesq: '',
 			check: '',
 			user: '',
 			Userplaylist: false,
+			PlaylistTracks: false,
 			Novidades: false,
 			Momento: false,
 			likedTracks: false,
@@ -59,6 +60,7 @@ class Home extends Component {
 			recomendacoesPag: false,
 			id_musica: '',
 			analise_musica: [],
+			shareWpp: true,
 			boolean_analise: false,
 			recentlyPlayedTrack: '',
 			isLoggedIn : false
@@ -67,6 +69,8 @@ class Home extends Component {
 		this.recomendacoesPag = this.recomendacoesPag.bind(this);
 		this.Userplaylist = this.Userplaylist.bind(this);
 		this.playlist = this.playlist.bind(this);
+		this.playlistTracks = this.playlistTracks.bind(this);
+		this.list_tracks = this.list_tracks.bind(this);
 		this.newRelease = this.newRelease.bind(this);
 		this.lancamentos_teste = this.lancamentos_teste.bind(this);
 		this.savedTracks = this.savedTracks.bind(this);
@@ -138,6 +142,7 @@ class Home extends Component {
 					Novidades: false,
 					likedTracks: true,
 					Userplaylist: false,
+					PlaylistTracks: false,
 					Momento: false,
 					Antigas: false,
 					topArtistas: false,
@@ -304,6 +309,7 @@ class Home extends Component {
 					data: response.data.items,
 					user: response.data.items[0].owner.id,
 					Userplaylist: true,
+					PlaylistTracks: false,
 					Novidades: false,
 					likedTracks: false,
 					Momento: false,
@@ -356,6 +362,9 @@ class Home extends Component {
 								<h4 className="info2"> Playlist Privada </h4>
 							)}
 						</div>
+						<button type="submit" onClick={() => {this.playlistTracks(playlist.id)}} className="btnSearch">
+							Musics
+						</button>
 					</div>
 					<hr className="lineORetorno" />
 				</div>
@@ -374,6 +383,66 @@ class Home extends Component {
 		);
 	};
 
+	// ---------------------------- playlist tracks -------------------------------
+	playlistTracks = (playlist_id) => {
+		axios
+			.get('https://api.spotify.com/v1/playlists/' + playlist_id + '/tracks', {
+				headers: {
+					Authorization: `Bearer ${this.token}`
+				}
+			})
+			.then((response) => {
+				console.log(response);
+				this.setState({
+					dataPlaylistTracks: response.data.items,
+					topMusicas: false,
+					topArtistas: false,
+					Momento: false,
+					Userplaylist: false,
+					PlaylistTracks: true,
+					likedTracks: false,
+					Novidades: false,
+					Antigas: false,
+					click: false,
+					favoritos: false,
+					artistaId: [],
+					home: false,
+					recomendacoesPag: false
+				});
+			})
+			.catch((erro) => console.log(erro.response.data));
+	};
+
+	list_tracks = () => {
+		var tracks = this.state.dataPlaylistTracks;
+		var track_saved = tracks.map((songs) => {
+
+			
+			return (
+				<div>
+					<div className="antigas">
+						<p className="antigastxt">{songs.track.name}</p>
+						<p className="antigastxt">{songs.track.album.artists[0].name}</p>
+					</div>
+					<hr className="line" />
+				</div>
+			);
+		});
+		return (
+			<div className="bloco">
+				<h1 className="title">Músicas</h1>
+				<div className="separando">
+					<div className="Texto"> Músicas</div>
+					<div className="Texto"> Artista</div>
+				</div>
+				<div className="tracks-container">
+					<div>{track_saved}</div>
+				</div>
+			</div>
+		);
+
+	};
+
 	// ----------------------------- escutados -------------------------
 
 	current = () => {
@@ -388,6 +457,7 @@ class Home extends Component {
 					dataCur: response.data,
 					Momento: true,
 					Userplaylist: false,
+					PlaylistTracks: false,
 					likedTracks: false,
 					Novidades: false,
 					Antigas: true,
@@ -418,6 +488,7 @@ class Home extends Component {
 					Antigas: true,
 					Momento: true,
 					Userplaylist: false,
+					PlaylistTracks: false,
 					likedTracks: false,
 					Novidades: false,
 					topArtistas: false,
@@ -511,9 +582,9 @@ class Home extends Component {
 					dataTopM: response.data.items,
 					topMusicas: true,
 					topArtistas: false,
-					Novidades: false,
 					Momento: false,
 					Userplaylist: false,
+					PlaylistTracks: false,
 					likedTracks: false,
 					Novidades: false,
 					Antigas: false,
@@ -589,9 +660,9 @@ class Home extends Component {
 				this.setState({
 					dataTopA: response.data.items,
 					topArtistas: true,
-					Novidades: false,
 					Momento: false,
 					Userplaylist: false,
+					PlaylistTracks: false,
 					likedTracks: false,
 					Novidades: false,
 					Antigas: false,
@@ -662,6 +733,7 @@ class Home extends Component {
 					favoritos: true,
 					Momento: false,
 					Userplaylist: false,
+					PlaylistTracks: false,
 					likedTracks: false,
 					Novidades: false,
 					Antigas: false,
@@ -735,6 +807,7 @@ class Home extends Component {
 					Antigas: false,
 					Momento: false,
 					Userplaylist: false,
+					PlaylistTracks: false,
 					likedTracks: false,
 					Novidades: false,
 					favoritos: true,
@@ -884,6 +957,7 @@ class Home extends Component {
 					Antigas: false,
 					Momento: false,
 					Userplaylist: false,
+					PlaylistTracks: false,
 					likedTracks: false,
 					Novidades: false,
 					favoritos: false,
@@ -1010,6 +1084,7 @@ class Home extends Component {
 					Antigas: false,
 					Momento: false,
 					Userplaylist: false,
+					PlaylistTracks: false,
 					likedTracks: false,
 					Novidades: false,
 					favoritos: false,
@@ -1061,6 +1136,7 @@ class Home extends Component {
 
 	render() {
 
+
 		var recentlyPlayedTrackUrl = "https://open.spotify.com/embed/track/" + this.state.recentlyPlayedTrack
 		return (
 			<div className="body_home">
@@ -1097,6 +1173,7 @@ class Home extends Component {
 									favoritos: true,
 									Momento: false,
 									Userplaylist: false,
+									PlaylistTracks: false,
 									likedTracks: false,
 									Novidades: false,
 									Antigas: false,
@@ -1147,7 +1224,7 @@ class Home extends Component {
 						<DarkModeToggle />
 
 						<iframe class="player" src={recentlyPlayedTrackUrl} frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-
+						
 						<div className="lado2">
 							<FacebookShareButton url={'https://musics4u.herokuapp.com/'} quote={'Utilize o Musics4U para tirar o maior proveito do seu Spotify!'}>
 								<AiFillFacebook color={'white'} size={40} />
@@ -1161,6 +1238,11 @@ class Home extends Component {
 							<a href=" https://www.linkedin.com/">
 								<AiOutlineLinkedin color={'white'} size={40} />
 							</a>
+							<WhatsappShareButton url={'https://musics4u.herokuapp.com/'} quote={'Utilize o Musics4U para tirar o maior proveito do seu Spotify!'}>
+							
+								<WhatsappIcon bgStyle={{ fill: 'transparent' }} iconFillColor={'white'} size={40} />
+							</WhatsappShareButton>
+
 							
 
 						</div>
@@ -1184,6 +1266,7 @@ class Home extends Component {
 				)}
 
 				{this.state.Userplaylist && <div>{this.playlist()}</div>}
+				{this.state.PlaylistTracks && <div>{this.list_tracks()}</div>}
 				{this.state.Novidades && <div>{this.lancamentos_teste()}</div>}
 				{this.state.likedTracks && <div>{this.myTracks()}</div>}
 				{this.state.Momento && <div>{this.current_music()}</div>}
