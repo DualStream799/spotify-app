@@ -57,6 +57,8 @@ class Home extends Component {
 			maisOuvidasM: [],
 			recomendacoes: false,
 			recomendacoesPag: false,
+			recentlyPlayedTrack: '',
+			featuredPage: false,
 			id_musica: '',
 			analise_musica: [],
 			shareWpp: true,
@@ -91,6 +93,8 @@ class Home extends Component {
 		this.analiseMusica = this.analiseMusica.bind(this);
 		this.musicCarac = this.musicCarac.bind(this);
 		this.recentlyPlayedTrack = this.recentlyPlayedTrack.bind(this);
+		this.feaaturedPlaylists = this.feaaturedPlaylists.bind(this);
+		this.pagFeaturedP = this.pagFeaturedP.bind(this);
 	}
 
 
@@ -107,6 +111,7 @@ class Home extends Component {
 					data: response.data.items,
 				});
 				console.log(this.state.data)
+				console.log(this.token)
 			})
 			.catch((erro) => console.log(erro.response.data));
 	};
@@ -1134,6 +1139,54 @@ class Home extends Component {
 			.catch((erro) => console.log(erro.response.data));
 	}
 
+	feaaturedPlaylists = () => {
+		axios.get('https://api.spotify.com/v1/browse/featured-playlists', {
+			headers: {
+				Authorization: `Bearer ${this.token}`
+			}
+		})
+		.then((response) => {
+			this.setState({
+				featuredPlaylists: response.data.playlists.items,
+				featuredPage: true,
+				Userplaylist: false,
+				Novidades: false,
+				likedTracks: false,
+				Momento: false,
+				Antigas: false,
+				topMusicas: false,
+				topArtistas: false,
+				favoritos: false,
+				artistaId: [],
+				home: false,
+				recomendacoesPag: false
+			});
+			console.log(this.state.featuredPlaylists)
+		})
+		.catch((erro) => console.log(erro));
+	}
+
+	pagFeaturedP = () => {
+		console.log(this.state.featuredPlaylists)
+		var feat = this.state.featuredPlaylists;
+		var featuredPage = feat.map((featured) => {
+			return (
+				<div className="grid-item">
+					<img className="imagesRound" src={featured.images[0].url} width={150} height={150} />
+					<div className="centralizacao">
+						<p className="TrackName">{featured.name}</p>
+					</div>
+				</div>
+			);
+		});
+		return (
+			<div className="bloco">
+				<h1 className="title">Featured Playlists</h1>
+				<div className="grid-container">{featuredPage}</div>
+			</div>
+			)
+		}
+
 	render() {
 
 
@@ -1220,6 +1273,17 @@ class Home extends Component {
 						>
 							Escutando
 						</button>
+
+						<button
+							className='btn'
+							style={{ backgroundColor: this.state.featPage ? '#454D4B' : 'transparent' }}
+							onClick={
+								this.feaaturedPlaylists.bind(this)}
+
+							>
+							Featured 
+						</button>
+
 						<iframe class="player" src={recentlyPlayedTrackUrl} frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 						
 						<div className="lado2">
@@ -1272,9 +1336,9 @@ class Home extends Component {
 				{this.state.topMusicas && <div>{this.fav_musics()}</div>}
 				{this.state.recomendacoes && <div>{this.recomendacoesPag()}</div>}
 				{this.state.recomendacoesPag && <div>{this.pag_recomend()}</div>}
+				{this.state.featuredPage && <div>{this.pagFeaturedP()}</div>}
 				{this.state.boolean_analise && <div>{this.musicCarac()}</div>}
 				{/* </div> */}
-
 			</div>
 		);
 	}
