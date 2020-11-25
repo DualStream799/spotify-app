@@ -11,7 +11,7 @@ import {
 	AiFillTwitterSquare,
 	AiOutlineLinkedin,
 } from 'react-icons/ai';
-import Header from './components/Header/Header'
+import Header from './Components/Header/Header'
 import logoLindo from './logoLindo.png';
 import {FacebookShareButton, RedditShareButton, TwitterShareButton, WhatsappShareButton, EmailShareButton, FacebookIcon, RedditIcon, EmailIcon, TwitterIcon, WhatsappIcon } from 'react-share';
 
