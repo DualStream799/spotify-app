@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AddMusicToPlaylist from "./Components/AddMusicToPlaylist"
+import AddMusicToPlaylist from "./components/AddMusicToPlaylist"
 import $ from 'jquery';
 import axios from 'axios';
 import './Home.css';
@@ -11,7 +11,7 @@ import {
 	AiFillTwitterSquare,
 	AiOutlineLinkedin,
 } from 'react-icons/ai';
-import Header from './Components/Header'
+import Header from './components/Header/Header'
 import logoLindo from './logoLindo.png';
 import {FacebookShareButton, RedditShareButton, TwitterShareButton, WhatsappShareButton, EmailShareButton, FacebookIcon, RedditIcon, EmailIcon, TwitterIcon, WhatsappIcon } from 'react-share';
 
@@ -187,9 +187,10 @@ class Home extends Component {
 			return (
 				<div>
 					<div className="antigas">
+						<img src={songs.track.album.images[0].url} width={150} height={150} />
 						<p className="antigastxt">{songs.track.name}</p>
 						<p className="antigastxt">{songs.track.album.artists[0].name}</p>
-						<p>
+						<p className="antigastxt">
 							{minutos}:{tempo.toFixed(0)}
 						</p>
 						<AddMusicToPlaylist playlists = {this.state.data} tracks = {songs.track} token = {this.token} />
