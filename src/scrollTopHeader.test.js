@@ -4,7 +4,7 @@ import { mount } from 'enzyme';
 import toJson from "enzyme-to-json"
 import Select from '@material-ui/core/Select';
 
-it("should render share button Whatsapp", () => {
+it("should render share button scrollTopHeader", () => {
     const props = {
         disableHysteresis: true,
         

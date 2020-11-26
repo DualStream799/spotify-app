@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AddMusicToPlaylist from "./components/AddMusicToPlaylist"
+import AddMusicToPlaylist from "./Components/AddMusicToPlaylist"
 import $ from 'jquery';
 import axios from 'axios';
 import './Home.css';
@@ -14,7 +14,7 @@ import {
 import Header from './Components/Header/Header'
 import logoLindo from './logoLindo.png';
 import {FacebookShareButton, RedditShareButton, TwitterShareButton, WhatsappShareButton, EmailShareButton, FacebookIcon, RedditIcon, EmailIcon, TwitterIcon, WhatsappIcon } from 'react-share';
-
+import { Button } from '@material-ui/core';
 
 
 class Home extends Component {
@@ -431,15 +431,27 @@ class Home extends Component {
 
 	list_tracks = () => {
 		var tracks = this.state.dataPlaylistTracks;
+		
 		var track_saved = tracks.map((songs) => {
 
-			
+			console.log(songs)
 			return (
 				<div>
 					<div className="antigas">
 						<img src={songs.track.album.images[0].url} width={150} height={150} />
 						<p className="antigastxt">{songs.track.name}</p>
 						<p className="antigastxt">{songs.track.album.artists[0].name}</p>
+						<p className="antigastxt"> 
+							<a href={songs.track.album.external_urls.spotify}>
+								<Button 
+									variant="contained"
+									color="secondary"
+									// redireciona para songs.track.album.external_urls.spotify
+								>
+									álbum 	 
+								</Button>
+							</a>
+						</p>
 					</div>
 					<hr className="line" />
 				</div>
@@ -455,7 +467,7 @@ class Home extends Component {
 					<div className="Texto"> </div>
 				</div>
 				<div className="tracks-container">
-					<div>{track_saved}</div>
+					<div>{track_saved} </div>
 				</div>
 			</div>
 		);
