@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AddMusicToPlaylist from "./components/AddMusicToPlaylist"
+import AddMusicToPlaylist from "./Components/AddMusicToPlaylist"
 import $ from 'jquery';
 import axios from 'axios';
 import './Home.css';
@@ -1406,6 +1406,11 @@ class Home extends Component {
 							
 								<WhatsappIcon bgStyle={{ fill: 'transparent' }} iconFillColor={'white'} size={40} />
 							</WhatsappShareButton>
+							<RedditShareButton
+								title={"Venha conhecer o Musics4u e aproveite o máximo de sua experiência com o Spotify!"}
+								url={"https://musics4u.herokuapp.com/"}>
+								<RedditIcon size={"2.5rem"} round={true} borderRadius={"9px"} />
+                			</RedditShareButton>
 
 							
 
