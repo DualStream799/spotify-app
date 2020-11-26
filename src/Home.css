@@ -299,7 +299,7 @@ transition: border-color 0.2s;
     justify-content: space-between;
     margin-right: 50px;
     color:rgb(255, 254, 254);
-    width: 800px;
+    width: 74%;
     background-color: rgb(0, 0, 0);
     
 }
@@ -307,8 +307,8 @@ transition: border-color 0.2s;
 .separando{
     flex-direction: row;
     display:flex;
-    width: 84%;
-    padding-left: 25px;
+    width: 76rem;
+    padding-left: 205px;
     color:white;
     justify-content: space-between;
     font-size: 24px;
@@ -338,6 +338,7 @@ transition: border-color 0.2s;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr; 
     align-items: left;
+    width: 74rem;
   }
 
 .musicas{
@@ -403,6 +404,9 @@ transition: border-color 0.2s;
 
 .antigastxt{
     flex-grow: row;
+    width: 24rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
 }
 
 .albumtxt{

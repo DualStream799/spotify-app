@@ -11,7 +11,7 @@ import {
 	AiFillTwitterSquare,
 	AiOutlineLinkedin,
 } from 'react-icons/ai';
-import Header from './components/Header'
+import Header from './Components/Header/Header'
 import logoLindo from './logoLindo.png';
 import {FacebookShareButton, RedditShareButton, TwitterShareButton, WhatsappShareButton, EmailShareButton, FacebookIcon, RedditIcon, EmailIcon, TwitterIcon, WhatsappIcon } from 'react-share';
 
@@ -30,6 +30,7 @@ class Home extends Component {
 			dataCur: [],
 			dataLast: [],
 			dataTopA: [],
+			datarelA: [],
 			dataTopM: [],
 			dataPlaylistTracks: [],
 			dataPesq: '',
@@ -43,6 +44,7 @@ class Home extends Component {
 			Antigas: false,
 			favoritos: false,
 			topArtistas: false,
+			relatedArtistas: false,
 			topMusicas: false,
 			meusFavoritos: [],
 			meusFavoritosGeneros: [],
@@ -57,6 +59,8 @@ class Home extends Component {
 			maisOuvidasM: [],
 			recomendacoes: false,
 			recomendacoesPag: false,
+			recentlyPlayedTrack: '',
+			featuredPage: false,
 			id_musica: '',
 			analise_musica: [],
 			playlistPesquisa:[],
@@ -89,6 +93,8 @@ class Home extends Component {
 		this.pesquisa = this.pesquisa.bind(this);
 		this.fav_artists = this.fav_artists.bind(this);
 		this.topArtist = this.topArtist.bind(this);
+		this.relatedArtist = this.relatedArtist.bind(this);
+		this.rel_artists = this.rel_artists.bind(this);
 		this.fav_musics = this.fav_musics.bind(this);
 		this.topMusic = this.topMusic.bind(this);
 		this.gera = this.gera.bind(this);
@@ -97,15 +103,15 @@ class Home extends Component {
 		this.musicCarac = this.musicCarac.bind(this);
 		this.handleChange = this.handleChange.bind(this);
 		this.recentlyPlayedTrack = this.recentlyPlayedTrack.bind(this);
+
 		this.busca = this.busca.bind(this);
 		this.resultPlaylist = this.resultPlaylist.bind(this);
 		this.verifica = this.verifica.bind(this);
 		this.follow = this.follow.bind(this);
 		this.getid=this.getid.bind(this);
 		this.funcao1=this.funcao1.bind(this);
-		
-		
-
+		this.feaaturedPlaylists = this.feaaturedPlaylists.bind(this);
+		this.pagFeaturedP = this.pagFeaturedP.bind(this);
 
 	}
 
@@ -134,6 +140,7 @@ class Home extends Component {
 					data: response.data.items,
 				});
 				console.log(this.state.data)
+				console.log(this.token)
 			})
 			.catch((erro) => console.log(erro.response.data));
 	};
@@ -172,6 +179,7 @@ class Home extends Component {
 					Momento: false,
 					Antigas: false,
 					topArtistas: false,
+					relatedArtistas: false,
 					topMusicas: false,
 					favoritos: false,
 					artistaId: [],
@@ -190,6 +198,7 @@ class Home extends Component {
 				Momento: false,
 				Antigas: false,
 				topArtistas: false,
+				relatedArtistas: false,
 				topMusicas: false,
 				favoritos: false,
 				artistaId: [],
@@ -216,9 +225,10 @@ class Home extends Component {
 			return (
 				<div>
 					<div className="antigas">
+						<img src={songs.track.album.images[0].url} width={150} height={150} />
 						<p className="antigastxt">{songs.track.name}</p>
 						<p className="antigastxt">{songs.track.album.artists[0].name}</p>
-						<p>
+						<p className="antigastxt">
 							{minutos}:{tempo.toFixed(0)}
 						</p>
 						<AddMusicToPlaylist playlists = {this.state.data} tracks = {songs.track} token = {this.token} />
@@ -271,6 +281,7 @@ class Home extends Component {
 					Momento: false,
 					Antigas: false,
 					topArtistas: false,
+					relatedArtistas: false,
 					topMusicas: false,
 					favoritos: false,
 					artistaId: [],
@@ -288,6 +299,7 @@ class Home extends Component {
 				Momento: false,
 				Antigas: false,
 				topArtistas: false,
+				relatedArtistas: false,
 				topMusicas: false,
 				favoritos: false,
 				artistaId: [],
@@ -346,6 +358,7 @@ class Home extends Component {
 					Antigas: false,
 					topMusicas: false,
 					topArtistas: false,
+					relatedArtistas: false,
 					favoritos: false,
 					artistaId: [],
 					home: false,
@@ -363,6 +376,7 @@ class Home extends Component {
 				Antigas: false,
 				topMusicas: false,
 				topArtistas: false,
+				relatedArtistas: false,
 				favoritos: false,
 				artistaId: [],
 				home: false,
@@ -395,7 +409,7 @@ class Home extends Component {
 							)}
 						</div>
 						<button type="submit" onClick={() => {this.playlistTracks(playlist.id)}} className="btnSearch">
-							Musics
+							Ver mais
 						</button>
 					</div>
 					<hr className="lineORetorno" />
@@ -429,6 +443,7 @@ class Home extends Component {
 					dataPlaylistTracks: response.data.items,
 					topMusicas: false,
 					topArtistas: false,
+					relatedArtistas: false,
 					Momento: false,
 					Userplaylist: false,
 					PlaylistTracks: true,
@@ -454,6 +469,7 @@ class Home extends Component {
 			return (
 				<div>
 					<div className="antigas">
+						<img src={songs.track.album.images[0].url} width={150} height={150} />
 						<p className="antigastxt">{songs.track.name}</p>
 						<p className="antigastxt">{songs.track.album.artists[0].name}</p>
 					</div>
@@ -467,6 +483,8 @@ class Home extends Component {
 				<div className="separando">
 					<div className="Texto"> Músicas</div>
 					<div className="Texto"> Artista</div>
+					<div className="Texto"> </div>
+					<div className="Texto"> </div>
 				</div>
 				<div className="tracks-container">
 					<div>{track_saved}</div>
@@ -497,6 +515,7 @@ class Home extends Component {
 					click: false,
 					topMusicas: false,
 					topArtistas: false,
+					relatedArtistas: false,
 					favoritos: false,
 					artistaId: [],
 					home: false,
@@ -526,6 +545,7 @@ class Home extends Component {
 					likedTracks: false,
 					Novidades: false,
 					topArtistas: false,
+					relatedArtistas: false,
 					topMusicas: false,
 					favoritos: false,
 					artistaId: [],
@@ -617,6 +637,7 @@ class Home extends Component {
 					dataTopM: response.data.items,
 					topMusicas: true,
 					topArtistas: false,
+					relatedArtistas: false,
 					Momento: false,
 					Userplaylist: false,
 					PlaylistTracks: false,
@@ -641,6 +662,7 @@ class Home extends Component {
 				Momento: false,
 				Antigas: false,
 				topArtistas: false,
+				relatedArtistas: false,
 				favoritos: false,
 				artistaId: [],
 				home: false,
@@ -697,6 +719,7 @@ class Home extends Component {
 				this.setState({
 					dataTopA: response.data.items,
 					topArtistas: true,
+					relatedArtistas: false,
 					Momento: false,
 					Userplaylist: false,
 					PlaylistTracks: false,
@@ -716,6 +739,7 @@ class Home extends Component {
 			})
 			.catch((erro) => this.setState({
 				topArtistas: true,
+				relatedArtistas: false,
 				Novidades: false,
 				likedTracks: false,
 				Momento: false,
@@ -742,6 +766,9 @@ class Home extends Component {
 						<p class="Texto" align="center">
 							<AiFillCustomerService /> {topCantores.genres[0]}
 						</p>
+						<button type="submit" onClick={() => {this.relatedArtist(topCantores.id)}} class="btnSearch" align="center">
+							Related
+						</button>
 					</div>
 			);
 		});
@@ -756,6 +783,80 @@ class Home extends Component {
 			</div>
 		);
 	};
+
+	// ----------------------------- related artistas ------------------------------
+
+	relatedArtist = (artist_id) => {
+		axios
+			.get('https://api.spotify.com/v1/artists/' + artist_id + '/related-artists', {
+				headers: {
+					Authorization: `Bearer ${this.token}`
+				}
+			})
+			.then((response) => {
+				this.setState({
+					datarelA: response.data.artists,
+					topArtistas: false,
+					relatedArtistas: true,
+					Momento: false,
+					Userplaylist: false,
+					PlaylistTracks: false,
+					likedTracks: false,
+					Novidades: false,
+					Antigas: false,
+					click: false,
+					topMusicas: false,
+					favoritos: false,
+					artistaId: [],
+					home: false,
+					boolean_analise: false,
+					recomendacoesPag: false,
+					isLoggedIn : true
+				});
+			})
+			.catch((erro) => this.setState({
+				topArtistas: false,
+				relatedArtistas: true,
+				Novidades: false,
+				likedTracks: false,
+				Momento: false,
+				Antigas: false,
+				topMusicas: false,
+				favoritos: false,
+				artistaId: [],
+				home: false,
+				boolean_analise: false,
+				recomendacoesPag: false,
+			}));
+	};
+
+	rel_artists = () => {
+		var artistUrlStart = "https://open.spotify.com/follow/1/?uri=spotify:artist:";
+		var artistUrlEnd = "&size=detail&theme=dark";
+		var cantores = this.state.datarelA;
+		var cantor = cantores.map((topCantores) => {
+			return (
+				<div class="grid-item">
+					<iframe class="follow_artist" src={artistUrlStart + topCantores.id + artistUrlEnd}
+					scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+						<p class="Texto" align="center">
+							<AiFillCustomerService /> {topCantores.genres[0]}
+						</p>
+					</div>
+			);
+		});
+		return (
+			<div>{
+				!this.state.isLoggedIn?<div className="bloco"> <h1 className="title">Por favor, faça login</h1></div> :
+				<div className="bloco">
+					<h1 className="title">Artistas Relacionados</h1>
+					<div className="grid-container">{cantor}</div>
+				</div>
+				}
+			</div>
+		);
+	};
+
 
 	// ----------------------------- favoritos -------------------------
 	favoritos = () => {
@@ -778,6 +879,7 @@ class Home extends Component {
 					Antigas: false,
 					topMusicas: false,
 					topArtistas: false,
+					relatedArtistas: false,
 					meusFavoritos: [],
 					meusFavoritosGeneros: [],
 					artistaId: [],
@@ -853,6 +955,7 @@ class Home extends Component {
 					favoritos: true,
 					topMusicas: false,
 					topArtistas: false,
+					relatedArtistas: false,
 					home: false,
 					boolean_analise: false,
 					recomendacoesPag: false,
@@ -1004,6 +1107,7 @@ class Home extends Component {
 					favoritos: false,
 					topMusicas: false,
 					topArtistas: false,
+					relatedArtistas: false,
 					home: false,
 					recomendacoes: true,
 					boolean_analise: false,
@@ -1202,6 +1306,7 @@ class Home extends Component {
 					likedTracks: false,
 					Novidades: false,
 					topArtistas: false,
+					relatedArtistas: false,
 					topMusicas: false,
 					favoritos: false,
 					artistaId: [],
@@ -1293,6 +1398,7 @@ class Home extends Component {
 					favoritos: false,
 					topMusicas: false,
 					topArtistas: false,
+					relatedArtistas: false,
 					home: false,
 					recomendacoes: false,
 					boolean_analise: false,
@@ -1338,6 +1444,54 @@ class Home extends Component {
 			.catch((erro) => console.log(erro.response.data));
 	}
 
+	feaaturedPlaylists = () => {
+		axios.get('https://api.spotify.com/v1/browse/featured-playlists', {
+			headers: {
+				Authorization: `Bearer ${this.token}`
+			}
+		})
+		.then((response) => {
+			this.setState({
+				featuredPlaylists: response.data.playlists.items,
+				featuredPage: true,
+				Userplaylist: false,
+				Novidades: false,
+				likedTracks: false,
+				Momento: false,
+				Antigas: false,
+				topMusicas: false,
+				topArtistas: false,
+				favoritos: false,
+				artistaId: [],
+				home: false,
+				recomendacoesPag: false
+			});
+			console.log(this.state.featuredPlaylists)
+		})
+		.catch((erro) => console.log(erro));
+	}
+
+	pagFeaturedP = () => {
+		console.log(this.state.featuredPlaylists)
+		var feat = this.state.featuredPlaylists;
+		var featuredPage = feat.map((featured) => {
+			return (
+				<div className="grid-item">
+					<img className="imagesRound" src={featured.images[0].url} width={150} height={150} />
+					<div className="centralizacao">
+						<p className="TrackName">{featured.name}</p>
+					</div>
+				</div>
+			);
+		});
+		return (
+			<div className="bloco">
+				<h1 className="title">Featured Playlists</h1>
+				<div className="grid-container">{featuredPage}</div>
+			</div>
+			)
+		}
+
 	render() {
 
 
@@ -1382,6 +1536,7 @@ class Home extends Component {
 									Novidades: false,
 									Antigas: false,
 									topArtistas: false,
+									relatedArtistas: false,
 									topMusicas: false,
 									meusFavoritos: [],
 									meusFavoritosGeneros: [],
@@ -1426,10 +1581,21 @@ class Home extends Component {
 							Escutando
 						</button>
 
+
 						<input name="keyword"
 							value={this.state.keyword}
 							onChange={this.handleChange} />
                     	<button onClick={() => {this.busca(); this.getid();}}>Buscar Playlist</button>
+						<button
+							className='btn'
+							style={{ backgroundColor: this.state.featPage ? '#454D4B' : 'transparent' }}
+							onClick={
+								this.feaaturedPlaylists.bind(this)}
+
+							>
+							Featured 
+						</button>
+
 
 						<iframe class="player" src={recentlyPlayedTrackUrl} frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 						
@@ -1480,14 +1646,15 @@ class Home extends Component {
 				{this.state.Momento && <div>{this.current_music()}</div>}
 				{this.state.favoritos && <div>{this.seusFavoritos()} </div>}
 				{this.state.topArtistas && <div>{this.fav_artists()}</div>}
+				{this.state.relatedArtistas && <div>{this.rel_artists()}</div>}
 				{this.state.topMusicas && <div>{this.fav_musics()}</div>}
 				{this.state.recomendacoes && <div>{this.recomendacoesPag()}</div>}
 				{this.state.recomendacoesPag && <div>{this.pag_recomend()}</div>}
+				{this.state.featuredPage && <div>{this.pagFeaturedP()}</div>}
 				{this.state.boolean_analise && <div>{this.musicCarac()}</div>}
 				{this.state.pesquisaPlaylist && <div>{this.resultPlaylist()}</div>}
 
 				{/* </div> */}
-
 			</div>
 		);
 	}

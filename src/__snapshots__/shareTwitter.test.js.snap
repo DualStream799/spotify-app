@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`It should render home when not logged in 1`] = `
+exports[`should render share button Twitter 1`] = `
 <Home
-  isLoggedIn={false}
+  shareTwitter={true}
 >
   <div
     className="body_home"
@@ -419,17 +419,6 @@ exports[`It should render home when not logged in 1`] = `
         >
           Escutando
         </button>
-        <input
-          name="keyword"
-          onChange={[Function]}
-          value=""
-        />
-        <button
-          onClick={[Function]}
-        >
-          Buscar Playlist
-        </button>
-
         <iframe
           allow="encrypted-media"
           allowtransparency="true"
