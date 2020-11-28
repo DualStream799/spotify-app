@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render share button Whatsapp 1`] = `
+exports[`should render share button Twitter 1`] = `
 <Home
-  shareWpp={true}
+  shareTwitter={true}
 >
   <div
     className="body_home"
@@ -418,16 +418,6 @@ exports[`should render share button Whatsapp 1`] = `
           }
         >
           Escutando
-        </button>
-        <input
-          name="keyword"
-          onChange={[Function]}
-          value=""
-        />
-        <button
-          onClick={[Function]}
-        >
-          Buscar Playlist
         </button>
         <iframe
           allow="encrypted-media"

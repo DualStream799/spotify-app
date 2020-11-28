@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render share button Whatsapp 1`] = `
+exports[`It should render home when not logged in 1`] = `
 <Home
-  shareWpp={true}
+  isLoggedIn={false}
 >
   <div
     className="body_home"
@@ -429,6 +429,7 @@ exports[`should render share button Whatsapp 1`] = `
         >
           Buscar Playlist
         </button>
+
         <iframe
           allow="encrypted-media"
           allowtransparency="true"
