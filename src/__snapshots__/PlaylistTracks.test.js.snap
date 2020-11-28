@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render analise 1`] = `
+exports[`should render minhas playlists com botão ver mais 1`] = `
 <Home
-  boolean_analise={true}
-  likedTracks={false}
+  PlaylistTracks={false}
+  Userplaylist={true}
 >
   <div
     className="body_home"
@@ -783,10 +783,10 @@ exports[`should render analise 1`] = `
 </Home>
 `;
 
-exports[`should render minhas musicas com botão analise 1`] = `
+exports[`should render ver mais 1`] = `
 <Home
-  boolean_analise={false}
-  likedTracks={true}
+  PlaylistTracks={true}
+  Userplaylist={false}
 >
   <div
     className="body_home"
