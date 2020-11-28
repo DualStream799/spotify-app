@@ -429,7 +429,17 @@ exports[`It should render home when not logged in 1`] = `
         >
           Buscar Playlist
         </button>
-
+        <button
+          className="btn"
+          onClick={[Function]}
+          style={
+            Object {
+              "backgroundColor": "transparent",
+            }
+          }
+        >
+          Featured
+        </button>
         <iframe
           allow="encrypted-media"
           allowtransparency="true"

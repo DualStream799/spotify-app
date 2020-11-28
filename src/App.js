@@ -55,6 +55,9 @@ class App extends React.Component {
 	//   })
 	// }
 	// <button onClick={this.Userplaylist}>Buscar playlist do user</button>*/
+	cadastroPopUp() {
+		window.open("https://www.spotify.com/br/signup/", "Popup","toolbar=no, location=no, statusbar=no, menubar=no, scrollbars=1, resizable=0, width=580, height=600, top=30")
+	}
 
 	render() {
 		return (
@@ -66,7 +69,7 @@ class App extends React.Component {
 						<a href="https://spotifyapimanager.herokuapp.com/login" >
 							<img className="botao1" src={btnEntrar} alt="botão login" />
 						</a>
-						<a target='popup' onClick={() => {window.open("https://www.spotify.com/br/signup/", "Popup","toolbar=no, location=no, statusbar=no, menubar=no, scrollbars=1, resizable=0, width=580, height=600, top=30")}}>
+						<a data-testid='cadastro' target='popup' onClick={this.cadastroPopUp}>
 							<img className='botao1' src={btnInscrever} alt='botão inscreva-se'/>
 						</a>
 				</div>
