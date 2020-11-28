@@ -430,6 +430,17 @@ exports[`should render analise 1`] = `
         >
           Buscar Playlist
         </button>
+        <button
+          className="btn"
+          onClick={[Function]}
+          style={
+            Object {
+              "backgroundColor": "transparent",
+            }
+          }
+        >
+          Featured
+        </button>
         <iframe
           allow="encrypted-media"
           allowtransparency="true"
@@ -1201,6 +1212,17 @@ exports[`should render minhas musicas com botão analise 1`] = `
           onClick={[Function]}
         >
           Buscar Playlist
+        </button>
+        <button
+          className="btn"
+          onClick={[Function]}
+          style={
+            Object {
+              "backgroundColor": "transparent",
+            }
+          }
+        >
+          Featured
         </button>
         <iframe
           allow="encrypted-media"

@@ -420,6 +420,27 @@ exports[`should render artistas mais ouvidos por mim com botão related 1`] = `
         >
           Escutando
         </button>
+        <input
+          name="keyword"
+          onChange={[Function]}
+          value=""
+        />
+        <button
+          onClick={[Function]}
+        >
+          Buscar Playlist
+        </button>
+        <button
+          className="btn"
+          onClick={[Function]}
+          style={
+            Object {
+              "backgroundColor": "transparent",
+            }
+          }
+        >
+          Featured
+        </button>
         <iframe
           allow="encrypted-media"
           allowtransparency="true"
@@ -1181,6 +1202,27 @@ exports[`should render related 1`] = `
           }
         >
           Escutando
+        </button>
+        <input
+          name="keyword"
+          onChange={[Function]}
+          value=""
+        />
+        <button
+          onClick={[Function]}
+        >
+          Buscar Playlist
+        </button>
+        <button
+          className="btn"
+          onClick={[Function]}
+          style={
+            Object {
+              "backgroundColor": "transparent",
+            }
+          }
+        >
+          Featured
         </button>
         <iframe
           allow="encrypted-media"
