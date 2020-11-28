@@ -63,9 +63,14 @@ class Home extends Component {
 			featuredPage: false,
 			id_musica: '',
 			analise_musica: [],
+			playlistPesquisa:[],
 			shareWpp: true,
 			boolean_analise: false,
 			recentlyPlayedTrack: '',
+			pesquisaPlaylist: false,
+			keyword:'',
+			verificaFollow:true,
+			seguindo:false,
 			isLoggedIn : false
 		};
 
@@ -96,10 +101,30 @@ class Home extends Component {
 		this.pag_recomend = this.pag_recomend.bind(this);
 		this.analiseMusica = this.analiseMusica.bind(this);
 		this.musicCarac = this.musicCarac.bind(this);
+		this.handleChange = this.handleChange.bind(this);
 		this.recentlyPlayedTrack = this.recentlyPlayedTrack.bind(this);
+
+		this.busca = this.busca.bind(this);
+		this.resultPlaylist = this.resultPlaylist.bind(this);
+		this.verifica = this.verifica.bind(this);
+		this.follow = this.follow.bind(this);
+		this.getid=this.getid.bind(this);
+		this.funcao1=this.funcao1.bind(this);
 		this.feaaturedPlaylists = this.feaaturedPlaylists.bind(this);
 		this.pagFeaturedP = this.pagFeaturedP.bind(this);
+
 	}
+
+	handleChange(event) {
+        var handleState = (state, event) => {
+            state[event.target.name] = event.target.value
+            return state
+        }
+
+        this.setState(handleState(this.state, event))
+	}
+	
+	
 
 
 	componentDidMount= () => {
@@ -161,6 +186,7 @@ class Home extends Component {
 					home: false,
 					boolean_analise: false,
 					recomendacoesPag: false,
+					pesquisaPlaylist: false,
 					isLoggedIn : true
 					
 				});
@@ -178,6 +204,7 @@ class Home extends Component {
 				artistaId: [],
 				home: false,
 				boolean_analise: false,
+				pesquisaPlaylist: false,
 				recomendacoesPag: false
 			}));
 	};
@@ -261,6 +288,7 @@ class Home extends Component {
 					home: false,
 					boolean_analise: false,
 					recomendacoesPag: false,
+					pesquisaPlaylist: false,
 					isLoggedIn : true
 				});
 			})
@@ -277,6 +305,7 @@ class Home extends Component {
 				artistaId: [],
 				home: false,
 				boolean_analise: false,
+				pesquisaPlaylist: false,
 				recomendacoesPag: false,
 			}));
 	};
@@ -335,6 +364,7 @@ class Home extends Component {
 					home: false,
 					boolean_analise: false,
 					recomendacoesPag: false,
+					pesquisaPlaylist: false,
 					isLoggedIn : true
 				});
 			})
@@ -351,6 +381,7 @@ class Home extends Component {
 				artistaId: [],
 				home: false,
 				boolean_analise: false,
+				pesquisaPlaylist: false,
 				recomendacoesPag: false,
 			}));
 	};
@@ -423,6 +454,7 @@ class Home extends Component {
 					favoritos: false,
 					artistaId: [],
 					home: false,
+					pesquisaPlaylist: false,
 					recomendacoesPag: false
 				});
 			})
@@ -501,6 +533,7 @@ class Home extends Component {
 					home: false,
 					boolean_analise: false,
 					recomendacoesPag: false,
+					pesquisaPlaylist: false,
 					isLoggedIn : true
 				});
 			})
@@ -531,6 +564,7 @@ class Home extends Component {
 					home: false,
 					boolean_analise: false,
 					recomendacoesPag: false,
+					pesquisaPlaylist: false,
 					isLoggedIn : true
 				});
 
@@ -629,6 +663,7 @@ class Home extends Component {
 					maisOuvidasM: response.data.items[0].id,
 					recomendacoesPag: false,
 					boolean_analise: false,
+					pesquisaPlaylist: false,
 					isLoggedIn : true
 				});
 			})
@@ -644,6 +679,7 @@ class Home extends Component {
 				artistaId: [],
 				home: false,
 				boolean_analise: false,
+				pesquisaPlaylist: false,
 				recomendacoesPag: false,
 			}));
 	};
@@ -709,6 +745,7 @@ class Home extends Component {
 					home: false,
 					boolean_analise: false,
 					recomendacoesPag: false,
+					pesquisaPlaylist: false,
 					isLoggedIn : true
 				});
 			})
@@ -724,6 +761,7 @@ class Home extends Component {
 				artistaId: [],
 				home: false,
 				boolean_analise: false,
+				pesquisaPlaylist: false,
 				recomendacoesPag: false,
 			}));
 	};
@@ -861,6 +899,7 @@ class Home extends Component {
 					geraPlaylist: true,
 					boolean_analise: false,
 					recomendacoesPag: false,
+					pesquisaPlaylist: false,
 					isLoggedIn : true
 				});
 			})
@@ -932,6 +971,7 @@ class Home extends Component {
 					home: false,
 					boolean_analise: false,
 					recomendacoesPag: false,
+					pesquisaPlaylist: false,
 					isLoggedIn : true
 				});
 			})
@@ -1084,11 +1124,172 @@ class Home extends Component {
 					recomendacoes: true,
 					boolean_analise: false,
 					recomendacoesPag: false,
+					pesquisaPlaylist: false,
 					isLoggedIn : true
 				});
 			})
 			.catch((erro) => console.log(erro.response.data));
 	};
+
+	//------------------------------ BUSCA + SEGUIR---------------------------------------------------------------
+
+	
+
+	busca(){
+		console.log('entrei no BUSCA')
+
+		axios
+			.get("https://api.spotify.com/v1/search?q="+this.state.keyword+"&type=playlist", {
+				headers: {
+					Authorization: `Bearer ${this.token}`
+				},
+			})
+
+			
+			.then((response) => {
+				console.log(response)
+				this.setState({
+					playlistPesquisa: response.data.playlists.items,
+					Antigas: false,
+					Momento: false,
+					Userplaylist: false,
+					likedTracks: false,
+					Novidades: false,
+					topArtistas: false,
+					topMusicas: false,
+					favoritos: false,
+					artistaId: [],
+					home: false,
+					boolean_analise: false,
+					recomendacoesPag: false,
+					pesquisaPlaylist: true,
+					isLoggedIn : true
+					
+					
+				});
+			})
+			
+			.catch((erro) => console.log(erro.response));
+
+		
+	}
+
+	follow(idPlaylist){
+
+		const requestOptions = {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json',
+            Authorization: `Bearer ${this.token}`,
+            },
+        };
+        fetch("https://api.spotify.com/v1/playlists/"+idPlaylist+"/followers", requestOptions)
+            
+	}
+	
+	getid(){
+		axios
+			.get("https://api.spotify.com/v1/me", {
+				headers: {
+					Authorization: `Bearer ${this.token}`
+				},
+			})
+
+			
+			.then((response) => {
+				console.log(response)
+				this.setState({
+					userId:response.data.id,
+						
+				});
+			})
+			
+			.catch((erro) => console.log(erro.response));
+
+		
+	}
+
+	verifica (id){
+		console.log("vou verificar"+this.state.userId)
+		
+			axios
+			.get("https://api.spotify.com/v1/playlists/"+id+"/followers/contains?ids="+this.state.userId, {
+				headers: {
+					Authorization: `Bearer ${this.token}`
+				},
+			})
+			
+			.then((response) => {
+
+				this.setState({
+					verificaFollow:response.data[0],
+					seguindo:true
+						
+				});
+				
+			})
+			
+			
+	}
+	funcao1(id_musica, parametro){
+		console.log("id da musica que vai para a função"+id_musica+"  "+parametro)
+
+
+		
+		if(parametro===false){
+			console.log("eu não seguia");
+			alert("Agora você está seguindo esta playlist!");
+		} else{
+			console.log("eu já sigo")
+			alert("Você já seguia esta playlist");
+		}
+		
+	}
+
+	
+		
+	resultPlaylist(){
+		console.log(this.state.userId)
+		var playlistsResult = this.state.playlistPesquisa;
+		var playlistR = playlistsResult.map((resultado) => {
+
+
+			
+				return (
+					<div className="grid-item">
+						<img className="imagesRound" src={resultado.images[0].url} width={150} height={150} />
+						<div className="centralizacao">
+							<p className="TrackName">{resultado.name}</p>
+							
+							<button onClick={() => {
+								this.verifica(resultado.id)
+								this.funcao1(resultado.id, this.state.verificaFollow); 
+								this.follow(resultado.id); }} >Follow Playlist</button>
+	
+						</div>
+					</div>
+				);
+			
+			}
+				
+
+			
+			
+		);
+		return (
+			<div>{
+				!this.state.isLoggedIn?<div className="bloco"> <h1 className="title">Por favor, faça login</h1></div> :
+				<div className="bloco">
+					<h1 className="title">Playlists {this.state.keyword}</h1>
+					<div className="grid-container">{playlistR}</div>
+				</div>
+				}
+			</div>
+		);
+		
+	};
+
+
+	
 
 	//--------------------------------issue: Mostrar analise da Musica--------------
 
@@ -1124,6 +1325,7 @@ class Home extends Component {
 					home: false,
 					boolean_analise: true,
 					recomendacoesPag: false,
+					pesquisaPlaylist: false,
 					isLoggedIn : true
 					
 					
@@ -1213,6 +1415,7 @@ class Home extends Component {
 					recomendacoes: false,
 					boolean_analise: false,
 					recomendacoesPag: true,
+					pesquisaPlaylist: false,
 					isLoggedIn : true
 				});
 			})
@@ -1351,6 +1554,7 @@ class Home extends Component {
 									meusFavoritosGeneros: [],
 									home: false,
 									recomendacoesPag: false,
+									pesquisaPlaylist: false,
 									boolean_analise: false
 								});
 							}}
@@ -1389,6 +1593,11 @@ class Home extends Component {
 							Escutando
 						</button>
 
+
+						<input name="keyword"
+							value={this.state.keyword}
+							onChange={this.handleChange} />
+                    	<button onClick={() => {this.busca(); this.getid();}}>Buscar Playlist</button>
 						<button
 							className='btn'
 							style={{ backgroundColor: this.state.featPage ? '#454D4B' : 'transparent' }}
@@ -1398,6 +1607,7 @@ class Home extends Component {
 							>
 							Featured 
 						</button>
+
 
 						<iframe class="player" src={recentlyPlayedTrackUrl} frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 						
@@ -1454,10 +1664,13 @@ class Home extends Component {
 				{this.state.recomendacoesPag && <div>{this.pag_recomend()}</div>}
 				{this.state.featuredPage && <div>{this.pagFeaturedP()}</div>}
 				{this.state.boolean_analise && <div>{this.musicCarac()}</div>}
+				{this.state.pesquisaPlaylist && <div>{this.resultPlaylist()}</div>}
+
 				{/* </div> */}
 			</div>
 		);
 	}
-}
+
+}	
 
 export default Home;

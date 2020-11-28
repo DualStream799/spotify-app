@@ -419,6 +419,16 @@ exports[`should render share button Whatsapp 1`] = `
         >
           Escutando
         </button>
+        <input
+          name="keyword"
+          onChange={[Function]}
+          value=""
+        />
+        <button
+          onClick={[Function]}
+        >
+          Buscar Playlist
+        </button>
         <iframe
           allow="encrypted-media"
           allowtransparency="true"
