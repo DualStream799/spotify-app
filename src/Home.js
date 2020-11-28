@@ -483,6 +483,16 @@ class Home extends Component {
 									álbum 	 
 								</Button>
 							</a>
+							<a style={{margin: "7px" }} href={songs.track.external_urls.spotify}>
+								<Button 
+									variant="contained"
+									color="secondary"
+									// redireciona para songs.track.artists.external_urls.spotify
+								>
+									Ouça novamente 	 
+								</Button>
+							</a>
+							
 						</p>
 					</div>
 					<hr className="line" />
