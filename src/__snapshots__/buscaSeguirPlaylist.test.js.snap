@@ -1,9 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render analise 1`] = `
+exports[`should render barra de busca 1`] = `
 <Home
-  boolean_analise={true}
-  likedTracks={false}
+  pesquisaPlaylist={false}
 >
   <div
     className="body_home"
@@ -783,10 +782,791 @@ exports[`should render analise 1`] = `
 </Home>
 `;
 
-exports[`should render minhas musicas com botão analise 1`] = `
+exports[`should render resultado busca 1`] = `
 <Home
-  boolean_analise={false}
-  likedTracks={true}
+  pesquisaPlaylist={false}
+>
+  <div
+    className="body_home"
+  >
+    <Header>
+      <WithStyles(CssBaseline)>
+        <CssBaseline
+          classes={Object {}}
+        />
+      </WithStyles(CssBaseline)>
+      <WithStyles(ForwardRef(AppBar))
+        style={
+          Object {
+            "background": "#000000",
+          }
+        }
+      >
+        <ForwardRef(AppBar)
+          classes={
+            Object {
+              "colorDefault": "MuiAppBar-colorDefault",
+              "colorInherit": "MuiAppBar-colorInherit",
+              "colorPrimary": "MuiAppBar-colorPrimary",
+              "colorSecondary": "MuiAppBar-colorSecondary",
+              "colorTransparent": "MuiAppBar-colorTransparent",
+              "positionAbsolute": "MuiAppBar-positionAbsolute",
+              "positionFixed": "MuiAppBar-positionFixed",
+              "positionRelative": "MuiAppBar-positionRelative",
+              "positionStatic": "MuiAppBar-positionStatic",
+              "positionSticky": "MuiAppBar-positionSticky",
+              "root": "MuiAppBar-root",
+            }
+          }
+          style={
+            Object {
+              "background": "#000000",
+            }
+          }
+        >
+          <WithStyles(ForwardRef(Paper))
+            className="MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary mui-fixed"
+            component="header"
+            elevation={4}
+            square={true}
+            style={
+              Object {
+                "background": "#000000",
+              }
+            }
+          >
+            <ForwardRef(Paper)
+              className="MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary mui-fixed"
+              classes={
+                Object {
+                  "elevation0": "MuiPaper-elevation0",
+                  "elevation1": "MuiPaper-elevation1",
+                  "elevation10": "MuiPaper-elevation10",
+                  "elevation11": "MuiPaper-elevation11",
+                  "elevation12": "MuiPaper-elevation12",
+                  "elevation13": "MuiPaper-elevation13",
+                  "elevation14": "MuiPaper-elevation14",
+                  "elevation15": "MuiPaper-elevation15",
+                  "elevation16": "MuiPaper-elevation16",
+                  "elevation17": "MuiPaper-elevation17",
+                  "elevation18": "MuiPaper-elevation18",
+                  "elevation19": "MuiPaper-elevation19",
+                  "elevation2": "MuiPaper-elevation2",
+                  "elevation20": "MuiPaper-elevation20",
+                  "elevation21": "MuiPaper-elevation21",
+                  "elevation22": "MuiPaper-elevation22",
+                  "elevation23": "MuiPaper-elevation23",
+                  "elevation24": "MuiPaper-elevation24",
+                  "elevation3": "MuiPaper-elevation3",
+                  "elevation4": "MuiPaper-elevation4",
+                  "elevation5": "MuiPaper-elevation5",
+                  "elevation6": "MuiPaper-elevation6",
+                  "elevation7": "MuiPaper-elevation7",
+                  "elevation8": "MuiPaper-elevation8",
+                  "elevation9": "MuiPaper-elevation9",
+                  "outlined": "MuiPaper-outlined",
+                  "root": "MuiPaper-root",
+                  "rounded": "MuiPaper-rounded",
+                }
+              }
+              component="header"
+              elevation={4}
+              square={true}
+              style={
+                Object {
+                  "background": "#000000",
+                }
+              }
+            >
+              <header
+                className="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary mui-fixed MuiPaper-elevation4"
+                style={
+                  Object {
+                    "background": "#000000",
+                  }
+                }
+              >
+                <WithStyles(ForwardRef(Toolbar))>
+                  <ForwardRef(Toolbar)
+                    classes={
+                      Object {
+                        "dense": "MuiToolbar-dense",
+                        "gutters": "MuiToolbar-gutters",
+                        "regular": "MuiToolbar-regular",
+                        "root": "MuiToolbar-root",
+                      }
+                    }
+                  >
+                    <div
+                      className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
+                    >
+                      <img
+                        height="45"
+                        src="logoLindo.png"
+                        width="45"
+                      />
+                    </div>
+                  </ForwardRef(Toolbar)>
+                </WithStyles(ForwardRef(Toolbar))>
+              </header>
+            </ForwardRef(Paper)>
+          </WithStyles(ForwardRef(Paper))>
+        </ForwardRef(AppBar)>
+      </WithStyles(ForwardRef(AppBar))>
+      <WithStyles(ForwardRef(Toolbar))
+        id="back-to-top-anchor"
+      >
+        <ForwardRef(Toolbar)
+          classes={
+            Object {
+              "dense": "MuiToolbar-dense",
+              "gutters": "MuiToolbar-gutters",
+              "regular": "MuiToolbar-regular",
+              "root": "MuiToolbar-root",
+            }
+          }
+          id="back-to-top-anchor"
+        >
+          <div
+            className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
+            id="back-to-top-anchor"
+          />
+        </ForwardRef(Toolbar)>
+      </WithStyles(ForwardRef(Toolbar))>
+      <ScrollTop>
+        <ForwardRef(Zoom)
+          in={false}
+        >
+          <Transition
+            appear={true}
+            enter={true}
+            exit={true}
+            in={false}
+            mountOnEnter={false}
+            onEnter={[Function]}
+            onEntered={[Function]}
+            onEntering={[Function]}
+            onExit={[Function]}
+            onExited={[Function]}
+            onExiting={[Function]}
+            timeout={
+              Object {
+                "enter": 225,
+                "exit": 195,
+              }
+            }
+            unmountOnExit={false}
+          >
+            <div
+              className="makeStyles-root-1"
+              onClick={[Function]}
+              role="presentation"
+              style={
+                Object {
+                  "transform": "scale(0)",
+                  "visibility": "hidden",
+                }
+              }
+            >
+              <WithStyles(ForwardRef(Fab))
+                aria-label="scroll back to top"
+                color="secondary"
+                size="small"
+              >
+                <ForwardRef(Fab)
+                  aria-label="scroll back to top"
+                  classes={
+                    Object {
+                      "colorInherit": "MuiFab-colorInherit",
+                      "disabled": "Mui-disabled",
+                      "extended": "MuiFab-extended",
+                      "focusVisible": "Mui-focusVisible",
+                      "label": "MuiFab-label",
+                      "primary": "MuiFab-primary",
+                      "root": "MuiFab-root",
+                      "secondary": "MuiFab-secondary",
+                      "sizeMedium": "MuiFab-sizeMedium",
+                      "sizeSmall": "MuiFab-sizeSmall",
+                    }
+                  }
+                  color="secondary"
+                  size="small"
+                >
+                  <WithStyles(ForwardRef(ButtonBase))
+                    aria-label="scroll back to top"
+                    className="MuiFab-root MuiFab-sizeSmall MuiFab-secondary"
+                    component="button"
+                    disabled={false}
+                    focusRipple={true}
+                    focusVisibleClassName="Mui-focusVisible"
+                  >
+                    <ForwardRef(ButtonBase)
+                      aria-label="scroll back to top"
+                      className="MuiFab-root MuiFab-sizeSmall MuiFab-secondary"
+                      classes={
+                        Object {
+                          "disabled": "Mui-disabled",
+                          "focusVisible": "Mui-focusVisible",
+                          "root": "MuiButtonBase-root",
+                        }
+                      }
+                      component="button"
+                      disabled={false}
+                      focusRipple={true}
+                      focusVisibleClassName="Mui-focusVisible"
+                    >
+                      <button
+                        aria-label="scroll back to top"
+                        className="MuiButtonBase-root MuiFab-root MuiFab-sizeSmall MuiFab-secondary"
+                        disabled={false}
+                        onBlur={[Function]}
+                        onDragLeave={[Function]}
+                        onFocus={[Function]}
+                        onKeyDown={[Function]}
+                        onKeyUp={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseLeave={[Function]}
+                        onMouseUp={[Function]}
+                        onTouchEnd={[Function]}
+                        onTouchMove={[Function]}
+                        onTouchStart={[Function]}
+                        tabIndex={0}
+                        type="button"
+                      >
+                        <span
+                          className="MuiFab-label"
+                        >
+                          <ForwardRef>
+                            <WithStyles(ForwardRef(SvgIcon))>
+                              <ForwardRef(SvgIcon)
+                                classes={
+                                  Object {
+                                    "colorAction": "MuiSvgIcon-colorAction",
+                                    "colorDisabled": "MuiSvgIcon-colorDisabled",
+                                    "colorError": "MuiSvgIcon-colorError",
+                                    "colorPrimary": "MuiSvgIcon-colorPrimary",
+                                    "colorSecondary": "MuiSvgIcon-colorSecondary",
+                                    "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
+                                    "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
+                                    "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
+                                    "root": "MuiSvgIcon-root",
+                                  }
+                                }
+                              >
+                                <svg
+                                  aria-hidden={true}
+                                  className="MuiSvgIcon-root"
+                                  focusable="false"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"
+                                  />
+                                </svg>
+                              </ForwardRef(SvgIcon)>
+                            </WithStyles(ForwardRef(SvgIcon))>
+                          </ForwardRef>
+                        </span>
+                        <WithStyles(memo)
+                          center={false}
+                        >
+                          <ForwardRef(TouchRipple)
+                            center={false}
+                            classes={
+                              Object {
+                                "child": "MuiTouchRipple-child",
+                                "childLeaving": "MuiTouchRipple-childLeaving",
+                                "childPulsate": "MuiTouchRipple-childPulsate",
+                                "ripple": "MuiTouchRipple-ripple",
+                                "ripplePulsate": "MuiTouchRipple-ripplePulsate",
+                                "rippleVisible": "MuiTouchRipple-rippleVisible",
+                                "root": "MuiTouchRipple-root",
+                              }
+                            }
+                          >
+                            <span
+                              className="MuiTouchRipple-root"
+                            >
+                              <TransitionGroup
+                                childFactory={[Function]}
+                                component={null}
+                                exit={true}
+                              />
+                            </span>
+                          </ForwardRef(TouchRipple)>
+                        </WithStyles(memo)>
+                      </button>
+                    </ForwardRef(ButtonBase)>
+                  </WithStyles(ForwardRef(ButtonBase))>
+                </ForwardRef(Fab)>
+              </WithStyles(ForwardRef(Fab))>
+            </div>
+          </Transition>
+        </ForwardRef(Zoom)>
+      </ScrollTop>
+    </Header>
+    <div
+      className="Home"
+    >
+      <div
+        class="img"
+      />
+      <div
+        className="botoes"
+      >
+        <button
+          class="btn"
+        >
+          <a
+            class="link"
+            href="https://spotifyapimanager.herokuapp.com/login"
+          >
+            Logar com Spotify
+          </a>
+        </button>
+        <button
+          class="btn"
+          onClick={[Function]}
+          style={
+            Object {
+              "backgroundColor": "transparent",
+            }
+          }
+        >
+          Suas playlists
+        </button>
+        <button
+          class="btn"
+          onClick={[Function]}
+          style={
+            Object {
+              "backgroundColor": "transparent",
+            }
+          }
+        >
+          Suas músicas mais ouvidas
+        </button>
+        <button
+          class="btn"
+          onClick={[Function]}
+          style={
+            Object {
+              "backgroundColor": "transparent",
+            }
+          }
+        >
+          Seus favoritos
+        </button>
+        <button
+          class="btn"
+          onClick={[Function]}
+          style={
+            Object {
+              "backgroundColor": "transparent",
+            }
+          }
+        >
+          Seus artistas mais ouvidos
+        </button>
+        <button
+          class="btn"
+          onClick={[Function]}
+          style={
+            Object {
+              "backgroundColor": "transparent",
+            }
+          }
+        >
+          Novos lançamentos
+        </button>
+        <button
+          class="btn"
+          onClick={[Function]}
+          style={
+            Object {
+              "backgroundColor": "transparent",
+            }
+          }
+        >
+          Minhas Músicas
+        </button>
+        <button
+          class="btn"
+          onClick={[Function]}
+          style={
+            Object {
+              "backgroundColor": "transparent",
+            }
+          }
+        >
+          Escutando
+        </button>
+        <input
+          name="keyword"
+          onChange={[Function]}
+          value=""
+        />
+        <button
+          onClick={[Function]}
+        >
+          Buscar Playlist
+        </button>
+        <button
+          className="btn"
+          onClick={[Function]}
+          style={
+            Object {
+              "backgroundColor": "transparent",
+            }
+          }
+        >
+          Featured
+        </button>
+        <iframe
+          allow="encrypted-media"
+          allowtransparency="true"
+          class="player"
+          frameborder="0"
+          src="https://open.spotify.com/embed/track/"
+        />
+        <div
+          className="lado2"
+        >
+          <ForwardRef(ShareButton-facebook)
+            quote="Utilize o Musics4U para tirar o maior proveito do seu Spotify!"
+            url="https://musics4u.herokuapp.com/"
+          >
+            <ShareButton
+              disabledStyle={
+                Object {
+                  "opacity": 0.6,
+                }
+              }
+              forwardedRef={null}
+              networkLink={[Function]}
+              networkName="facebook"
+              openShareDialogOnClick={true}
+              opts={
+                Object {
+                  "hashtag": undefined,
+                  "quote": "Utilize o Musics4U para tirar o maior proveito do seu Spotify!",
+                }
+              }
+              resetButtonStyle={true}
+              url="https://musics4u.herokuapp.com/"
+              windowHeight={400}
+              windowWidth={550}
+            >
+              <button
+                aria-label="facebook"
+                className="react-share__ShareButton"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "backgroundColor": "transparent",
+                    "border": "none",
+                    "color": "inherit",
+                    "cursor": "pointer",
+                    "font": "inherit",
+                    "padding": 0,
+                  }
+                }
+              >
+                <AiFillFacebook
+                  color="white"
+                  size={40}
+                >
+                  <IconBase
+                    attr={
+                      Object {
+                        "viewBox": "0 0 1024 1024",
+                      }
+                    }
+                    color="white"
+                    size={40}
+                  >
+                    <svg
+                      color="white"
+                      fill="currentColor"
+                      height={40}
+                      size={40}
+                      stroke="currentColor"
+                      strokeWidth="0"
+                      style={
+                        Object {
+                          "color": "white",
+                        }
+                      }
+                      viewBox="0 0 1024 1024"
+                      width={40}
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-92.4 233.5h-63.9c-50.1 0-59.8 23.8-59.8 58.8v77.1h119.6l-15.6 120.7h-104V912H539.2V602.2H434.9V481.4h104.3v-89c0-103.3 63.1-159.6 155.3-159.6 44.2 0 82.1 3.3 93.2 4.8v107.9z"
+                        key="0"
+                      />
+                    </svg>
+                  </IconBase>
+                </AiFillFacebook>
+              </button>
+            </ShareButton>
+          </ForwardRef(ShareButton-facebook)>
+          <ForwardRef(ShareButton-twitter)
+            hashtags={
+              Array [
+                "Music4U",
+              ]
+            }
+            title="Estou utilizando o Musics4U para tirar o maior proveito do meu Spotify!"
+            url="https://musics4u.herokuapp.com/"
+          >
+            <ShareButton
+              disabledStyle={
+                Object {
+                  "opacity": 0.6,
+                }
+              }
+              forwardedRef={null}
+              networkLink={[Function]}
+              networkName="twitter"
+              openShareDialogOnClick={true}
+              opts={
+                Object {
+                  "hashtags": Array [
+                    "Music4U",
+                  ],
+                  "related": undefined,
+                  "title": "Estou utilizando o Musics4U para tirar o maior proveito do meu Spotify!",
+                  "via": undefined,
+                }
+              }
+              resetButtonStyle={true}
+              url="https://musics4u.herokuapp.com/"
+              windowHeight={400}
+              windowWidth={550}
+            >
+              <button
+                aria-label="twitter"
+                className="react-share__ShareButton"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "backgroundColor": "transparent",
+                    "border": "none",
+                    "color": "inherit",
+                    "cursor": "pointer",
+                    "font": "inherit",
+                    "padding": 0,
+                  }
+                }
+              >
+                <AiFillTwitterSquare
+                  color="white"
+                  size={40}
+                >
+                  <IconBase
+                    attr={
+                      Object {
+                        "viewBox": "0 0 1024 1024",
+                      }
+                    }
+                    color="white"
+                    size={40}
+                  >
+                    <svg
+                      color="white"
+                      fill="currentColor"
+                      height={40}
+                      size={40}
+                      stroke="currentColor"
+                      strokeWidth="0"
+                      style={
+                        Object {
+                          "color": "white",
+                        }
+                      }
+                      viewBox="0 0 1024 1024"
+                      width={40}
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zM727.3 401.7c.3 4.7.3 9.6.3 14.4 0 146.8-111.8 315.9-316.1 315.9-63 0-121.4-18.3-170.6-49.8 9 1 17.6 1.4 26.8 1.4 52 0 99.8-17.6 137.9-47.4-48.8-1-89.8-33-103.8-77 17.1 2.5 32.5 2.5 50.1-2a111 111 0 0 1-88.9-109v-1.4c14.7 8.3 32 13.4 50.1 14.1a111.13 111.13 0 0 1-49.5-92.4c0-20.7 5.4-39.6 15.1-56a315.28 315.28 0 0 0 229 116.1C492 353.1 548.4 292 616.2 292c32 0 60.8 13.4 81.1 35 25.1-4.7 49.1-14.1 70.5-26.7-8.3 25.7-25.7 47.4-48.8 61.1 22.4-2.4 44-8.6 64-17.3-15.1 22.2-34 41.9-55.7 57.6z"
+                        key="0"
+                      />
+                    </svg>
+                  </IconBase>
+                </AiFillTwitterSquare>
+              </button>
+            </ShareButton>
+          </ForwardRef(ShareButton-twitter)>
+          <a
+            href=" https://www.instagram.com/"
+          >
+            <AiFillInstagram
+              color="white"
+              size={40}
+            >
+              <IconBase
+                attr={
+                  Object {
+                    "viewBox": "0 0 1024 1024",
+                  }
+                }
+                color="white"
+                size={40}
+              >
+                <svg
+                  color="white"
+                  fill="currentColor"
+                  height={40}
+                  size={40}
+                  stroke="currentColor"
+                  strokeWidth="0"
+                  style={
+                    Object {
+                      "color": "white",
+                    }
+                  }
+                  viewBox="0 0 1024 1024"
+                  width={40}
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M512 378.7c-73.4 0-133.3 59.9-133.3 133.3S438.6 645.3 512 645.3 645.3 585.4 645.3 512 585.4 378.7 512 378.7zM911.8 512c0-55.2.5-109.9-2.6-165-3.1-64-17.7-120.8-64.5-167.6-46.9-46.9-103.6-61.4-167.6-64.5-55.2-3.1-109.9-2.6-165-2.6-55.2 0-109.9-.5-165 2.6-64 3.1-120.8 17.7-167.6 64.5C132.6 226.3 118.1 283 115 347c-3.1 55.2-2.6 109.9-2.6 165s-.5 109.9 2.6 165c3.1 64 17.7 120.8 64.5 167.6 46.9 46.9 103.6 61.4 167.6 64.5 55.2 3.1 109.9 2.6 165 2.6 55.2 0 109.9.5 165-2.6 64-3.1 120.8-17.7 167.6-64.5 46.9-46.9 61.4-103.6 64.5-167.6 3.2-55.1 2.6-109.8 2.6-165zM512 717.1c-113.5 0-205.1-91.6-205.1-205.1S398.5 306.9 512 306.9 717.1 398.5 717.1 512 625.5 717.1 512 717.1zm213.5-370.7c-26.5 0-47.9-21.4-47.9-47.9s21.4-47.9 47.9-47.9 47.9 21.4 47.9 47.9a47.84 47.84 0 0 1-47.9 47.9z"
+                    key="0"
+                  />
+                </svg>
+              </IconBase>
+            </AiFillInstagram>
+          </a>
+          <a
+            href=" https://www.linkedin.com/"
+          >
+            <AiOutlineLinkedin
+              color="white"
+              size={40}
+            >
+              <IconBase
+                attr={
+                  Object {
+                    "viewBox": "0 0 1024 1024",
+                  }
+                }
+                color="white"
+                size={40}
+              >
+                <svg
+                  color="white"
+                  fill="currentColor"
+                  height={40}
+                  size={40}
+                  stroke="currentColor"
+                  strokeWidth="0"
+                  style={
+                    Object {
+                      "color": "white",
+                    }
+                  }
+                  viewBox="0 0 1024 1024"
+                  width={40}
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M847.7 112H176.3c-35.5 0-64.3 28.8-64.3 64.3v671.4c0 35.5 28.8 64.3 64.3 64.3h671.4c35.5 0 64.3-28.8 64.3-64.3V176.3c0-35.5-28.8-64.3-64.3-64.3zm0 736c-447.8-.1-671.7-.2-671.7-.3.1-447.8.2-671.7.3-671.7 447.8.1 671.7.2 671.7.3-.1 447.8-.2 671.7-.3 671.7zM230.6 411.9h118.7v381.8H230.6zm59.4-52.2c37.9 0 68.8-30.8 68.8-68.8a68.8 68.8 0 1 0-137.6 0c-.1 38 30.7 68.8 68.8 68.8zm252.3 245.1c0-49.8 9.5-98 71.2-98 60.8 0 61.7 56.9 61.7 101.2v185.7h118.6V584.3c0-102.8-22.2-181.9-142.3-181.9-57.7 0-96.4 31.7-112.3 61.7h-1.6v-52.2H423.7v381.8h118.6V604.8z"
+                    key="0"
+                  />
+                </svg>
+              </IconBase>
+            </AiOutlineLinkedin>
+          </a>
+          <ForwardRef(ShareButton-whatsapp)
+            quote="Utilize o Musics4U para tirar o maior proveito do seu Spotify!"
+            url="https://musics4u.herokuapp.com/"
+          >
+            <ShareButton
+              disabledStyle={
+                Object {
+                  "opacity": 0.6,
+                }
+              }
+              forwardedRef={null}
+              networkLink={[Function]}
+              networkName="whatsapp"
+              openShareDialogOnClick={true}
+              opts={
+                Object {
+                  "separator": " ",
+                  "title": undefined,
+                }
+              }
+              quote="Utilize o Musics4U para tirar o maior proveito do seu Spotify!"
+              resetButtonStyle={true}
+              url="https://musics4u.herokuapp.com/"
+              windowHeight={400}
+              windowWidth={550}
+            >
+              <button
+                aria-label="whatsapp"
+                className="react-share__ShareButton"
+                onClick={[Function]}
+                quote="Utilize o Musics4U para tirar o maior proveito do seu Spotify!"
+                style={
+                  Object {
+                    "backgroundColor": "transparent",
+                    "border": "none",
+                    "color": "inherit",
+                    "cursor": "pointer",
+                    "font": "inherit",
+                    "padding": 0,
+                  }
+                }
+              >
+                <Icon
+                  bgStyle={
+                    Object {
+                      "fill": "transparent",
+                    }
+                  }
+                  borderRadius={0}
+                  iconFillColor="white"
+                  size={40}
+                >
+                  <svg
+                    height={40}
+                    viewBox="0 0 64 64"
+                    width={40}
+                  >
+                    <rect
+                      fill="#25D366"
+                      height="64"
+                      rx={0}
+                      ry={0}
+                      style={
+                        Object {
+                          "fill": "transparent",
+                        }
+                      }
+                      width="64"
+                    />
+                    <path
+                      d="m42.32286,33.93287c-0.5178,-0.2589 -3.04726,-1.49644 -3.52105,-1.66732c-0.4712,-0.17346 -0.81554,-0.2589 -1.15987,0.2589c-0.34175,0.51004 -1.33075,1.66474 -1.63108,2.00648c-0.30032,0.33658 -0.60064,0.36247 -1.11327,0.12945c-0.5178,-0.2589 -2.17994,-0.80259 -4.14759,-2.56312c-1.53269,-1.37217 -2.56312,-3.05503 -2.86603,-3.57283c-0.30033,-0.5178 -0.03366,-0.80259 0.22524,-1.06149c0.23301,-0.23301 0.5178,-0.59547 0.7767,-0.90616c0.25372,-0.31068 0.33657,-0.5178 0.51262,-0.85437c0.17088,-0.36246 0.08544,-0.64725 -0.04402,-0.90615c-0.12945,-0.2589 -1.15987,-2.79613 -1.58964,-3.80584c-0.41424,-1.00971 -0.84142,-0.88027 -1.15987,-0.88027c-0.29773,-0.02588 -0.64208,-0.02588 -0.98382,-0.02588c-0.34693,0 -0.90616,0.12945 -1.37736,0.62136c-0.4712,0.5178 -1.80194,1.76053 -1.80194,4.27186c0,2.51134 1.84596,4.945 2.10227,5.30747c0.2589,0.33657 3.63497,5.51458 8.80262,7.74113c1.23237,0.5178 2.1903,0.82848 2.94111,1.08738c1.23237,0.38836 2.35599,0.33657 3.24402,0.20712c0.99159,-0.15534 3.04985,-1.24272 3.47963,-2.45956c0.44013,-1.21683 0.44013,-2.22654 0.31068,-2.45955c-0.12945,-0.23301 -0.46601,-0.36247 -0.98382,-0.59548m-9.40068,12.84407l-0.02589,0c-3.05503,0 -6.08417,-0.82849 -8.72495,-2.38189l-0.62136,-0.37023l-6.47252,1.68286l1.73463,-6.29129l-0.41424,-0.64725c-1.70875,-2.71846 -2.6149,-5.85116 -2.6149,-9.07706c0,-9.39809 7.68934,-17.06155 17.15993,-17.06155c4.58253,0 8.88029,1.78642 12.11655,5.02268c3.23625,3.21036 5.02267,7.50812 5.02267,12.06476c-0.0078,9.3981 -7.69712,17.06155 -17.14699,17.06155m14.58906,-31.58846c-3.93529,-3.80584 -9.1133,-5.95471 -14.62789,-5.95471c-11.36055,0 -20.60848,9.2065 -20.61625,20.52564c0,3.61684 0.94757,7.14565 2.75211,10.26282l-2.92557,10.63564l10.93337,-2.85309c3.0136,1.63108 6.4052,2.4958 9.85634,2.49839l0.01037,0c11.36574,0 20.61884,-9.2091 20.62403,-20.53082c0,-5.48093 -2.14111,-10.64081 -6.03239,-14.51915"
+                      fill="white"
+                    />
+                  </svg>
+                </Icon>
+              </button>
+            </ShareButton>
+          </ForwardRef(ShareButton-whatsapp)>
+        </div>
+      </div>
+    </div>
+  </div>
+</Home>
+`;
+
+exports[`should render seguir playlist 1`] = `
+<Home
+  seguindo={true}
 >
   <div
     className="body_home"
