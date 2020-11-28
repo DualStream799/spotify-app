@@ -226,7 +226,7 @@ class Home extends Component {
 			return (
 				<div>
 					<div className="antigas">
-						<img cata-testid='musicImg' src={songs.track.album.images[0].url} width={150} height={150} />
+						<img data-testid='musicImg' src={songs.track.album.images[0].url} width={150} height={150} />
 						<p className="antigastxt">{songs.track.name}</p>
 						<p className="antigastxt">{songs.track.album.artists[0].name}</p>
 						<p className="antigastxt">
