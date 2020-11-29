@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import AddMusicToPlaylist from "./Components/AddMusicToPlaylist"
 import DarkModeToggle from './Components/DarkModeToggle'
-
-
 import $ from 'jquery';
 import axios from 'axios';
 import './Home.css';
@@ -1598,11 +1596,13 @@ class Home extends Component {
 
 						<DarkModeToggle />
 
+						<DarkModeToggle />
+
+
 						<input name="keyword"
 							value={this.state.keyword}
 							onChange={this.handleChange} />
                     	<button onClick={() => {this.busca(); this.getid();}}>Buscar Playlist</button>
-
 
 						<button
 							className='btn'
