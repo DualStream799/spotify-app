@@ -11,3 +11,14 @@ it("It should render home when not logged in", () => {
     const app = mount(<Home {...props} />)
     expect(toJson(app)).toMatchSnapshot()
 })
+
+
+it("It should render reddit share button", () => {
+    const props = {
+        isLoggedIn: true,
+    }
+    const app = mount(<Home {...props} />)
+    expect(toJson(app)).toMatchSnapshot()
+})
+
+
