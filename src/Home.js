@@ -1624,20 +1624,14 @@ class Home extends Component {
 						
 						<div className="lado2">
 							<FacebookShareButton url={'https://musics4u.herokuapp.com/'} quote={'Utilize o Musics4U para tirar o maior proveito do seu Spotify!'}>
-								<AiFillFacebook color={'white'} size={40} />
+								<FacebookIcon size={"2.5rem"} round={true} borderRadius={"9px"}/>
 							</FacebookShareButton>
 							<TwitterShareButton url={'https://musics4u.herokuapp.com/'} title={'Estou utilizando o Musics4U para tirar o maior proveito do meu Spotify!'} hashtags={['Music4U']}>
-								<AiFillTwitterSquare color={'white'} size={40} />
+								<TwitterIcon size={"2.5rem"} round={true} borderRadius={"9px"} />
 							</TwitterShareButton>					
-							<a href=" https://www.instagram.com/">
-								<AiFillInstagram color={'white'} size={40} />
-							</a>
-							<a href=" https://www.linkedin.com/">
-								<AiOutlineLinkedin color={'white'} size={40} />
-							</a>
 							<WhatsappShareButton url={'https://musics4u.herokuapp.com/'} quote={'Utilize o Musics4U para tirar o maior proveito do seu Spotify!'}>
 							
-								<WhatsappIcon bgStyle={{ fill: 'transparent' }} iconFillColor={'white'} size={40} />
+								<WhatsappIcon size={"2.5rem"} round={true} borderRadius={"9px"} />
 							</WhatsappShareButton>
 							<RedditShareButton
 								title={"Venha conhecer o Musics4u e aproveite o máximo de sua experiência com o Spotify!"}
