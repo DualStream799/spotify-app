@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import AddMusicToPlaylist from "./Components/AddMusicToPlaylist"
-
 import DarkModeToggle from './Components/DarkModeToggle'
-
 import $ from 'jquery';
 import axios from 'axios';
 import './Home.css';
@@ -237,7 +235,7 @@ class Home extends Component {
 							{minutos}:{tempo.toFixed(0)}
 						</p>
 						<AddMusicToPlaylist playlists = {this.state.data} tracks = {songs.track} token = {this.token} />
-						<button onClick={() => this.analiseMusica(songs.track.id)}>Analise da Musica</button>
+						<button onClick={() => this.analiseMusica(songs.track.id)} className="btnSearch">Analise</button>
 						
 						
 					</div>
@@ -1349,52 +1347,40 @@ class Home extends Component {
 			
 			.catch((erro) => console.log(erro.response));
 			
-
-			
-		
 	}
 	
 	
 
 	musicCarac = () => {
-		console.log("entrei na musicCarac")
-		console.log("deveria ser true:"+this.state.boolean_analise)
-		console.log(this.state.analise_musica)
+		
 		var analises = this.state.analise_musica;
-		console.log(analises.danceability)
+		
 
 		return (
-			<div>
-				<div className="antigas">
-					<p className="antigastxt">{analises.danceability}</p>
-					<p className="antigastxt">{analises.energy}</p>
+			<div  className="analises">
+
+
+					<p className="analisetxt">•acousticness: {analises.acousticness}</p>
+					<br></br>
+					<p className="analisetxt">•danceability: {analises.danceability}</p>
+					<br></br>
+					<p className="analisetxt">•energy: {analises.energy}</p>
+					<br></br>
+					<p className="analisetxt">•instrumentalness: {analises.instrumentalness}</p>
+					<br></br>
+					<p className="analisetxt">•iliveness: {analises.liveness}</p>
+					<br></br>
+					<p className="analisetxt">•loudness: {analises.loudness}</p>
+					<br></br>
+					<p className="analisetxt">•track_href:<a href={analises.track_href}>{analises.track_href}</a></p>
 					
-					<p className="antigastxt">{analises.instrumentalness}</p>
-					<p className="antigastxt">{analises.track_href}</p>
-					
-				</div>
-				<hr className="line" />
+				
 				
 			</div>
 			
 		);
 
-		return (
-			<div className="bloco">
-				<h1 className="title">Minhas Músicas</h1>
-				<div className="separando">
-					<div className="Texto"> Músicas</div>
-					<div className="Texto"> Artista</div>
-					<div className="Texto"> Tempo</div>
-					<div className="Texto"> Analise</div>
-
-				</div>
-				<div className="tracks-container">
-					<div>{analises}</div>
-				</div>
-			</div>
-		);
-		
+			
 			
 	};
 	
@@ -1608,6 +1594,7 @@ class Home extends Component {
 							Escutando
 						</button>
 
+						<DarkModeToggle />
 
 						<DarkModeToggle />
 
@@ -1632,21 +1619,20 @@ class Home extends Component {
 						
 						<div className="lado2">
 							<FacebookShareButton url={'https://musics4u.herokuapp.com/'} quote={'Utilize o Musics4U para tirar o maior proveito do seu Spotify!'}>
-								<AiFillFacebook color={'white'} size={40} />
+								<FacebookIcon size={"2.5rem"} round={true} borderRadius={"9px"}/>
 							</FacebookShareButton>
 							<TwitterShareButton url={'https://musics4u.herokuapp.com/'} title={'Estou utilizando o Musics4U para tirar o maior proveito do meu Spotify!'} hashtags={['Music4U']}>
-								<AiFillTwitterSquare color={'white'} size={40} />
+								<TwitterIcon size={"2.5rem"} round={true} borderRadius={"9px"} />
 							</TwitterShareButton>					
-							<a href=" https://www.instagram.com/">
-								<AiFillInstagram color={'white'} size={40} />
-							</a>
-							<a href=" https://www.linkedin.com/">
-								<AiOutlineLinkedin color={'white'} size={40} />
-							</a>
 							<WhatsappShareButton url={'https://musics4u.herokuapp.com/'} quote={'Utilize o Musics4U para tirar o maior proveito do seu Spotify!'}>
 							
-								<WhatsappIcon bgStyle={{ fill: 'transparent' }} iconFillColor={'white'} size={40} />
+								<WhatsappIcon size={"2.5rem"} round={true} borderRadius={"9px"} />
 							</WhatsappShareButton>
+							<RedditShareButton
+								title={"Venha conhecer o Musics4u e aproveite o máximo de sua experiência com o Spotify!"}
+								url={"https://musics4u.herokuapp.com/"}>
+								<RedditIcon size={"2.5rem"} round={true} borderRadius={"9px"} />
+                			</RedditShareButton>
 
 							
 
