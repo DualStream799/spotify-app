@@ -14,7 +14,7 @@ it("should render barra de busca", () => {
 })
 it("should render resultado busca", () => {
     const props = {
-        pesquisaPlaylist: false,
+        pesquisaPlaylist: true,
     }
     const app = mount(<Home {...props} />)
     expect(toJson(app)).toMatchSnapshot()

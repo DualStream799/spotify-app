@@ -545,3 +545,31 @@ input[type="radio"]:checked + label {
     
 }
 
+.analisetxt{
+    flex-grow: row;
+    width: 24rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    color: rgb(253, 246, 246);
+
+}
+
+.analises{
+    margin-left: 350px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    margin-top: 80px;
+    color:rgb(255, 254, 254);
+    background-color: rgb(0, 0, 0);
+    
+}
+
+.btnbusca{
+    background-color: white;
+    color: black;
+    border-radius: 18px;
+    font-size:15px;
+}
+
+
+

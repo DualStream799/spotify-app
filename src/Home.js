@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AddMusicToPlaylist from "./Components/AddMusicToPlaylist"
+import AddMusicToPlaylist from "./components/AddMusicToPlaylist"
 import $ from 'jquery';
 import axios from 'axios';
 import './Home.css';
@@ -11,7 +11,7 @@ import {
 	AiFillTwitterSquare,
 	AiOutlineLinkedin,
 } from 'react-icons/ai';
-import Header from './Components/Header/Header'
+import Header from './components/Header/Header'
 import logoLindo from './logoLindo.png';
 import {FacebookShareButton, RedditShareButton, TwitterShareButton, WhatsappShareButton, EmailShareButton, FacebookIcon, RedditIcon, EmailIcon, TwitterIcon, WhatsappIcon } from 'react-share';
 import { Button } from '@material-ui/core';
@@ -233,7 +233,7 @@ class Home extends Component {
 							{minutos}:{tempo.toFixed(0)}
 						</p>
 						<AddMusicToPlaylist playlists = {this.state.data} tracks = {songs.track} token = {this.token} />
-						<button onClick={() => this.analiseMusica(songs.track.id)}>Analise da Musica</button>
+						<button onClick={() => this.analiseMusica(songs.track.id)} className="btnSearch">Analise</button>
 						
 						
 					</div>
@@ -1345,52 +1345,40 @@ class Home extends Component {
 			
 			.catch((erro) => console.log(erro.response));
 			
-
-			
-		
 	}
 	
 	
 
 	musicCarac = () => {
-		console.log("entrei na musicCarac")
-		console.log("deveria ser true:"+this.state.boolean_analise)
-		console.log(this.state.analise_musica)
+		
 		var analises = this.state.analise_musica;
-		console.log(analises.danceability)
+		
 
 		return (
-			<div>
-				<div className="antigas">
-					<p className="antigastxt">{analises.danceability}</p>
-					<p className="antigastxt">{analises.energy}</p>
+			<div  className="analises">
+
+
+					<p className="analisetxt">•acousticness: {analises.acousticness}</p>
+					<br></br>
+					<p className="analisetxt">•danceability: {analises.danceability}</p>
+					<br></br>
+					<p className="analisetxt">•energy: {analises.energy}</p>
+					<br></br>
+					<p className="analisetxt">•instrumentalness: {analises.instrumentalness}</p>
+					<br></br>
+					<p className="analisetxt">•iliveness: {analises.liveness}</p>
+					<br></br>
+					<p className="analisetxt">•loudness: {analises.loudness}</p>
+					<br></br>
+					<p className="analisetxt">•track_href:<a href={analises.track_href}>{analises.track_href}</a></p>
 					
-					<p className="antigastxt">{analises.instrumentalness}</p>
-					<p className="antigastxt">{analises.track_href}</p>
-					
-				</div>
-				<hr className="line" />
+				
 				
 			</div>
 			
 		);
 
-		return (
-			<div className="bloco">
-				<h1 className="title">Minhas Músicas</h1>
-				<div className="separando">
-					<div className="Texto"> Músicas</div>
-					<div className="Texto"> Artista</div>
-					<div className="Texto"> Tempo</div>
-					<div className="Texto"> Analise</div>
-
-				</div>
-				<div className="tracks-container">
-					<div>{analises}</div>
-				</div>
-			</div>
-		);
-		
+			
 			
 	};
 	
@@ -1608,7 +1596,7 @@ class Home extends Component {
 						<input name="keyword"
 							value={this.state.keyword}
 							onChange={this.handleChange} />
-                    	<button onClick={() => {this.busca(); this.getid();}}>Buscar Playlist</button>
+                    	<button onClick={() => {this.busca(); this.getid();}} className="btnbusca">Buscar Playlist</button>
 						<button
 							className='btn'
 							style={{ backgroundColor: this.state.featPage ? '#454D4B' : 'transparent' }}
