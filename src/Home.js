@@ -1594,16 +1594,6 @@ class Home extends Component {
 							Escutando
 						</button>
 
-						<DarkModeToggle />
-
-						<DarkModeToggle />
-
-
-						<input name="keyword"
-							value={this.state.keyword}
-							onChange={this.handleChange} />
-                    	<button onClick={() => {this.busca(); this.getid();}}>Buscar Playlist</button>
-
 						<button
 							className='btn'
 							style={{ backgroundColor: this.state.featPage ? '#454D4B' : 'transparent' }}
@@ -1613,6 +1603,14 @@ class Home extends Component {
 							>
 							Featured 
 						</button>
+
+
+						<DarkModeToggle />
+
+						<input class="searchPlaylistInput" name="keyword"
+							value={this.state.keyword}
+							onChange={this.handleChange} />
+                    	<button onClick={() => {this.busca(); this.getid();}}>Buscar Playlist</button>
 
 
 						<iframe class="player" src={recentlyPlayedTrackUrl} frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
