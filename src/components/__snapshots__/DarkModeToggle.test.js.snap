@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dark Mode Button  renders correctly 1`] = `
+<div>
+  <button
+    onClick={[Function]}
+    type="button"
+  >
+    Dark Mode
+  </button>
+  <span
+    className="toggle-control"
+  >
+    <input
+      checked={false}
+      className="dmcheck"
+      id="dmcheck"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <label
+      htmlFor="dmcheck"
+    />
+  </span>
+</div>
+`;

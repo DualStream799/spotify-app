@@ -17,6 +17,7 @@
     "react-scripts": "4.0.0",
     "react-share": "^4.3.1",
     "share": "^0.7.40",
+    "use-dark-mode": "^2.3.1",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
